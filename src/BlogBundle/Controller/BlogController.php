@@ -23,9 +23,11 @@ class BlogController extends Controller
         $wtf=$this->getDoctrine();
         $blogRepository=$wtf->getRepository("BlogBundle:Blog");
         $blog=$blogRepository->find($id);
-        echo "<pre>";
-        var_dump($blog);
-        echo "</pre>";
-        return $this->render("::base.html.twig");
+//        echo "<pre>";
+//        var_dump($blog);
+//        echo "</pre>";
+        return $this->render("BlogBundle:Blog:view.html.twig",[
+            'blog'=>$blog
+        ]);
     }
 }
