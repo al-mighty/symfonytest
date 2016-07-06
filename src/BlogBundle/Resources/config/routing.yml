@@ -1,0 +1,9 @@
+homepage:
+  path: /
+  defaults: { _controller: BlogBundle:Blog:homepage}
+
+blog_view:
+  path: /blog/{id}
+  defaults: { _controller: BlogBundle:Blog:blogView }
+  requirements :
+    id: \d+
