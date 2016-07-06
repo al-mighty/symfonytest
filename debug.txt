@@ -1,0 +1,64 @@
+$ composer require --dev doctrine/doctrine-fixtures-bundle
+Using version ^2.3 for doctrine/doctrine-fixtures-bundle
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+  - Installing doctrine/data-fixtures (v1.1.1)
+    Loading from cache
+
+  - Installing doctrine/doctrine-fixtures-bundle (2.3.0)
+    Loading from cache
+
+doctrine/data-fixtures suggests installing doctrine/mongodb-odm (For loading Mon
+goDB ODM fixtures)
+doctrine/data-fixtures suggests installing doctrine/phpcr-odm (For loading PHPCR
+ ODM fixtures)
+Writing lock file
+Generating autoload files
+> Incenteev\ParameterHandler\ScriptHandler::buildParameters
+Updating the "app/config/parameters.yml" file
+> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::buildBootstrap
+> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::clearCache
+
+ // Clearing the cache for the dev environment with debug
+ // true
+
+ [OK] Cache for the "dev" environment (debug=true) was successfully cleared.
+
+> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installAssets
+
+
+  [Symfony\Component\Filesystem\Exception\IOException]
+  Cannot rename "D:\openserver\domains\test\symfonytest\var\cache\dev\appFC64
+  .tmp" to "D:\openserver\domains\test\symfonytest\var\cache\dev/appDevDebugP
+  rojectContainer.xml".
+
+
+Script Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installAssets ha
+ndling the post-update-cmd event terminated with an exception
+
+Installation failed, reverting ./composer.json to its original content.
+
+
+  [RuntimeException]
+  An error occurred when executing the ""assets:install --symlink --relative
+   web "" command:
+
+
+    [Symfony\Component\Filesystem\Exception\IOException]
+
+    Cannot rename "D:\openserver\domains\test\symfonytest\var\cache\dev\appFC
+  64
+    .tmp" to "D:\openserver\domains\test\symfonytest\var\cache\dev/appDevDebu
+  gP
+    rojectContainer.xml".
+
+
+
+  .
+
+
+require [--dev] [--prefer-source] [--prefer-dist] [--no-progress] [--no-update]
+[--update-no-dev] [--update-with-dependencies] [--ignore-platform-reqs] [--sort-
+packages] [-o|--optimize-autoloader] [-a|--classmap-authoritative] [--] [<packag
+es>]...
