@@ -1,7 +1,12 @@
 homepage:
   path: /
   defaults: { _controller: BlogBundle:Blog:homepage}
-
+blog_teaser:
+  path: /blog/
+  defaults: { _controller: BlogBundle:Blog:teaser }
+blog_teaser:
+  path: /about_us/
+  defaults: { _controller: BlogBundle:Page:aboutUs }
 blog_view:
   path: /blog/{id}
   defaults: { _controller: BlogBundle:Blog:blogView }

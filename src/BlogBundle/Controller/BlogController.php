@@ -30,4 +30,14 @@ class BlogController extends Controller
             'blog'=>$blog
         ]);
     }
+
+    public function teaserAction()
+    {
+        $wtf=$this->getDoctrine();
+        $teaserRepository=$wtf->getRepository("BlogBundle:Blog");
+        $teasers=$teaserRepository->findAll();
+        return $this->render("BlogBundle:Blog:teaser.html.twig",[
+            'teasers'=>$teasers
+        ]);
+    }
 }
