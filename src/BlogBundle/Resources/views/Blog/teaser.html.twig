@@ -13,6 +13,13 @@
         <div class="container blog-container">
             {{ teaser.summary|raw }}
         </div>
+        <nav role="navigation">
+            <ul>
+                <li class="read-more">
+                    <a href="{{ path('blog_view',{'id':teaser.id}) }}">Далее</a>
+                </li>
+            </ul>
+        </nav>
     </article>
     {% endfor %}
 {% endblock %}

@@ -15,6 +15,6 @@ class PageController extends Controller
 {
     public function aboutUsAction()
     {
-        return $this->render("BlogBundle::about_us.html.twig");
+        return $this->render("BlogBundle:Page:about_us.html.twig");
     }
 }
