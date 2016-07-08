@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+    {% block main_menu %}
+        <ul>
+            <li>link 1</li>
+            <li>link 2</li>
+        </ul>
+    {% endblock %}
+    <div class="page_title" id="page_title">
+        {% block page_title %}{% endblock %}
+    </div>
+
+    {% block content %}{% endblock %}
+
+{% endblock %}
