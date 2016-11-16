@@ -1,0 +1,157 @@
+/* line 1, scss/include/footer.scss */
+footer {
+  background-color: #bbdeca;
+  text-align: center;
+  padding: 10px 0;
+}
+/* line 6, scss/include/footer.scss */
+footer .block-copyright {
+  font-size: 14px;
+  color: #767979;
+}
+
+/* line 1, scss/include/header.scss */
+h1 {
+  color: red;
+  text-size: 20pt;
+}
+
+/* line 5, scss/include/header.scss */
+.page_title {
+  color: red;
+  font-size: 12pt;
+}
+
+/* line 10, scss/include/header.scss */
+.block-logo {
+  background-color: gray;
+}
+/* line 12, scss/include/header.scss */
+.block-logo .side-log {
+  margin: 0 auto;
+  width: 960px;
+}
+
+/* line 17, scss/include/header.scss */
+.main-menu {
+  text-align: center;
+  margin-top: 30px;
+  background-color: #00ff41;
+}
+/* line 18, scss/include/header.scss */
+.main-menu ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 21, scss/include/header.scss */
+.main-menu ul li {
+  padding: 0 20px;
+  display: inline-block;
+}
+/* line 24, scss/include/header.scss */
+.main-menu ul li a {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 30, scss/include/header.scss */
+.main-menu ul li a:hover {
+  text-decoration: underline;
+}
+
+/* line 1, scss/include/main.scss */
+#main_container {
+  margin: 30px auto;
+  width: 960px;
+}
+
+/* line 7, scss/include/main.scss */
+article .field {
+  margin-bottom: 20px;
+}
+/* line 9, scss/include/main.scss */
+article .field:last-child {
+  margin-bottom: 0;
+}
+/* line 13, scss/include/main.scss */
+article .field-created {
+  color: #777777;
+  font-size: 14px;
+}
+/* line 17, scss/include/main.scss */
+article.blog-teaser {
+  padding-bottom: 20px;
+  border-bottom: 2px solid #bbdeca;
+}
+/* line 18, scss/include/main.scss */
+article.blog-teaser .article-title {
+  text-align: center;
+}
+/* line 21, scss/include/main.scss */
+article.blog-teaser .field-created {
+  text-align: center;
+}
+/* line 26, scss/include/main.scss */
+article.blog-teaser:last-child {
+  padding: 0;
+  border-bottom-width: 0;
+  margin-bottom: 0px;
+}
+/* line 33, scss/include/main.scss */
+article .link-menu ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 36, scss/include/main.scss */
+article .link-menu ul li {
+  list-style: none;
+  text-align: left;
+}
+/* line 39, scss/include/main.scss */
+article .link-menu ul li a {
+  color: #ff6f00;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* line 1, scss/include/typography.scss */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 8, scss/include/typography.scss */
+body {
+  font-family: Calibri;
+  font-size: 16px;
+}
+
+/* line 13, scss/include/typography.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 17, scss/include/typography.scss */
+h1 {
+  font-size: 35px;
+  margin: 0 0 20px 0;
+  color: #246625;
+}
+
+/* line 23, scss/include/typography.scss */
+h2 {
+  font-size: 27px;
+  color: #246625;
+  margin: 0 0 20px 0;
+}
+/* line 24, scss/include/typography.scss */
+h2 a {
+  color: #246625;
+  text-decoration: none;
+}
+
+/* line 33, scss/include/typography.scss */
+p {
+  margin-top: 0;
+}

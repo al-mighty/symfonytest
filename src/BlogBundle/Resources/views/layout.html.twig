@@ -3,8 +3,9 @@
 
     {% block main_menu %}
         <ul>
-            <li>link 1</li>
-            <li>link 2</li>
+            <li><a href="{{ path("homepage") }}">Главная</a>
+            {#<li><a href="{{ path("blog_teaser") }}">Блог</a></li>#}
+            {#<li><a href="{{ path("blog_about_us") }}">Про нас</a></li>#}
         </ul>
     {% endblock %}
     <div class="page_title" id="page_title">

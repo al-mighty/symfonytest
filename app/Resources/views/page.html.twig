@@ -1,0 +1,48 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+    {% block header %}
+        <header>
+            {% block logo %}
+                <div class="block block-logo">
+                    <div class="side-log"><img src="{{ asset('BlogBundle/image/mr-robot-logo.jpg') }}" alt=""></div>
+                </div>
+            {% endblock %}
+
+            {% block main_menu %}
+                <div class="main-menu" id="menu_main_menu">
+                    <div class="type-menu">
+                        <ul>
+                            <li><a href="{{ path("homepage") }}">Главная</a>
+                            <li><a href="{{ path("blog_teaser") }}">Блог</a></li>
+                            <li><a href="{{ path("blog_about_us") }}">Про нас</a></li>
+                        </ul>
+                    </div>
+                </div>
+            {% endblock %}
+        </header>
+    {% endblock %}
+
+    {% block content %}
+        <div class="main_container" id="main_container">
+            {% block site_title %}
+                <div class="page_title" id="page_title">
+                    <h1>{% block main_title %}PaGe TitLE{% endblock %}</h1>
+                </div>
+            {% endblock %}
+            {#главное содержание#}
+            <main class="main" id="main">
+                {% block main %}
+
+                {% endblock %}
+            </main>
+            {% endblock %}
+        </div>
+    {% block footer %}
+        <footer role="contentinfo">
+            <div class="block block-copyright">
+                Copyright *copy 2016 blablalba
+            </div>
+        </footer>
+    {% endblock %}
+{% endblock %}

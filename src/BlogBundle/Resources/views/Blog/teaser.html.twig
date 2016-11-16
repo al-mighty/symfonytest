@@ -1,19 +1,18 @@
-{% extends "::base.html.twig" %}
-{% block body %}
-    {{ dump(teasers) }}
-    <div class="page_title" id="page_title">
-        <h1>Блог</h1>
-    </div>
+{% extends "::page.html.twig" %}
+{% block site_title %}{% endblock %}
+{% block main %}
     {% for teaser in teasers %}
-    <article>
-        <h2>
+    <article class="blog blog-teaser">
+        <h2 class="article-title">
             <a href="{{ path('blog_view',{'id':teaser.id}) }}">{{ teaser.title }}</a>
         </h2>
-
+        <div class="field field-created">
+            {{ teaser.created|date("d-m-Y H:m") }}
+        </div>
         <div class="container blog-container">
             {{ teaser.summary|raw }}
         </div>
-        <nav role="navigation">
+        <nav class="link-menu" role="navigation">
             <ul>
                 <li class="read-more">
                     <a href="{{ path('blog_view',{'id':teaser.id}) }}">Далее</a>
