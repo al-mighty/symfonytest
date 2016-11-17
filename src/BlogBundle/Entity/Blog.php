@@ -3,12 +3,13 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Blog
  * @package BlogBundle\Entity
  * @ORM\Table(name="blog")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\BlogRepository")
  * */
 
 class Blog
@@ -25,10 +26,12 @@ class Blog
     private $title;
     /**
      * @ORM\Column(type="text",nullable=true)
+     * @Assert\NotBlank()
      */
     private $body;
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      */
     private $summary;
     /**

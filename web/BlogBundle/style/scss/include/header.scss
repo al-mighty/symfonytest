@@ -1,0 +1,38 @@
+h1{
+  color:red;
+  text-size:20pt;
+}
+.page_title{
+  color:red;
+  font-size:12pt;
+}
+
+.block-logo{
+  background-color:gray;
+  .side-log{
+    margin:0 auto;
+    width: $desktop;
+  }
+}
+.main-menu{
+  ul{
+    margin:0;
+    padding:0;
+    li{
+      padding:0 20px;
+      display:inline-block;
+      a{
+        font-size:16px;
+        font-weight:bold;
+        text-decoration: none;
+
+      }
+      a:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+  text-align: center ;
+  margin-top:30px;
+  background-color: $cbd;
+}

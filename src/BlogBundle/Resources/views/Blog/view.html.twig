@@ -1,17 +1,21 @@
-{% extends "::base.html.twig" %}
-{% block body %}
-    {{ dump(blog) }}
-    <div class="page_title" id="page_title">
-        <h1>{{ blog.title }}</h1>
-    </div>
+{% extends "::page.html.twig" %}
+{% block page_title %}
+    {#<div class="page_title" id="page_title">#}
+    <h1>{{ blog.title }}</h1>
+    {#</div>#}
+{% endblock %}
+{% block main %}
 {#Резюме#}
-    <article>
+    <article class="blog">
         <div class="container blog-container">
-            <div class="field field-body">
-                {{ blog.body|raw }}
-            </div>
             <div class="field field-created">
                 {{ blog.created|date("d-m-Y H:m") }}
+            </div>
+            {{ dump(blog.body) }}
+            <div class="field field-body">
+                <p>
+                    {{ blog.body|raw }}
+                </p>
             </div>
         </div>
     </article>
