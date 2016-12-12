@@ -4,17 +4,25 @@ security:
 
 
     encoders:
-        Symfony\Component\Security\Core\User\User:
+#        Symfony\Component\Security\Core\User\User:
+#            algorithm: bcrypt
+#            cost: 12
+        BlogBundle\Entity\User:
             algorithm: bcrypt
-            cost: 12
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory:
-                users:
-                    admin:
-                        password: $2y$12$zEcgd4uqzWZCMIMllM5HpO89ClAAgANSth0RIpBOI0pfOLJlqsXkW
-                        roles: ROLE_ADMIN
+#        in_memory:
+#            memory:
+#                users:
+#                    admin:
+#                        password: $2y$12$zEcgd4uqzWZCMIMllM5HpO89ClAAgANSth0RIpBOI0pfOLJlqsXkW
+#                        roles: ROLE_ADMIN
+        our_db_provider:
+                    entity:
+                        class: BlogBundle:User
+#                        property: username
+                        # if you're using multiple entity managers
+                        # manager_name: customer
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -23,8 +31,9 @@ security:
             security: false
 
         main:
-            anonymous: ~
+            pattern:    ^/
             http_basic: ~
+            provider: our_db_provider
             # activate different ways to authenticate
 
             # http_basic: ~

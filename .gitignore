@@ -3,3 +3,5 @@ var/cache/
 var/logs/
 www-source/
 .sass-cache/
+*.06.2016.zip
+var/*
