@@ -1,3 +1,7 @@
+Добавь
+
+composer require symfony/security
+========================
 
 starter 
 1)>php bin/console doctrine:database:create

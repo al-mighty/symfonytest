@@ -5,3 +5,8 @@ www-source/
 .sass-cache/
 *.06.2016.zip
 var/*
+/vendor/*
+/tests/*
+/bin/*
+/web/
+/vendor/
