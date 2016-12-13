@@ -1,24 +1,27 @@
 {% extends "::page.html.twig" %}
 {% block site_title %}{% endblock %}
 {% block main %}
-    {% for teaser in teasers %}
-    <article class="blog blog-teaser">
-        <h2 class="article-title">
-            <a href="{{ path('blog_view',{'id':teaser.id}) }}">{{ teaser.title }}</a>
-        </h2>
-        <div class="field field-created">
-            {{ teaser.created|date("d-m-Y H:m") }}
-        </div>
-        <div class="container blog-container">
-            {{ teaser.summary|raw }}
-        </div>
-        <nav class="link-menu" role="navigation">
-            <ul>
-                <li class="read-more">
-                    <a href="{{ path('blog_view',{'id':teaser.id}) }}">Далее</a>
-                </li>
-            </ul>
-        </nav>
-    </article>
-    {% endfor %}
+    <div class="blog_view">
+        {% for blog in blogs %}
+            <article class="blog blog-teaser">
+                <h2 class="article-title">
+                    <a href="{{ path('blog_view',{'id':blog.id}) }}">{{ blog.title }}</a>
+                </h2>
+                <div class="field field-created">
+                    {{ blog.created|date("d-m-Y H:m") }}
+                </div>
+                <div class="container blog-container">
+                    {{ blog.summary|raw }}
+                </div>
+                <nav class="link-menu" role="navigation">
+                    <ul>
+                        <li class="read-more">
+                            <a href="{{ path('blog_view',{'id':blog.id}) }}">Далее</a>
+                        </li>
+                    </ul>
+                </nav>
+            </article>
+        {% endfor %}
+    </div>
+    {{ include('BlogBundle:Include:pagination.html.twig', {'pagination': pagination}) }}
 {% endblock %}

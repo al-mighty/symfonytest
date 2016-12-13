@@ -1,9 +1,9 @@
 homepage:
   path: /
-  defaults: { _controller: BlogBundle:Blog:teaser }
+  defaults: { _controller: BlogBundle:Blog:blog }
 blog_teaser:
   path: /blog/
-  defaults: { _controller: BlogBundle:Blog:teaser }
+  defaults: { _controller: BlogBundle:Blog:blog }
 blog_about_us:
   path: /about_us/
   defaults: { _controller: BlogBundle:Page:aboutUs }
