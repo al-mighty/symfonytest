@@ -11,6 +11,10 @@ namespace BlogBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
+/**
+ * Class BlogRepository
+ * @package BlogBundle\Repository
+ */
 class BlogRepository extends EntityRepository
 {
     public function searchAllBlogCount(){
@@ -19,7 +23,11 @@ class BlogRepository extends EntityRepository
         return $query->getQuery()->getOneOrNullResult();
     }
 
-    public function findBlog(array $context = []){
+    /**
+     * @param array $context
+     * @return array
+     */
+    public function getBlog(array $context = []){
         $q=$this->createQueryBuilder("b");
 //        page==2=5*n=10 где N номер страницы
         $page=0;

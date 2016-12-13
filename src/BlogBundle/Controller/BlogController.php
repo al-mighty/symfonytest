@@ -9,6 +9,7 @@
 namespace BlogBundle\Controller;
 
 
+use BlogBundle\Entity\Blog;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BlogController extends Controller
@@ -31,17 +32,21 @@ class BlogController extends Controller
         ]);
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function teaserAction()
     {
         $wtf=$this->getDoctrine();
-        $teaserRepository=$wtf->getRepository("BlogBundle:Blog");
+        $teaserRepository=$wtf->getRepository(Blog::class);
+        var_export(get_class($teaserRepository));
         //$totalBlog=$teaserRepository->searchAllBlogCount();
         //var_dump($totalBlog);
-        $teasers=$teaserRepository->findBlog(['page'=>2]);
+//        $teasers=$teaserRepository->getBlog(['page'=>2]);
         //var_dump($totalBlog);
 //        $teasers=$teaserRepository->findAll();
         return $this->render("BlogBundle:Blog:teaser.html.twig",[
-            'teasers'=>$teasers
+            'teasers'=>null
         ]);
     }
 }
