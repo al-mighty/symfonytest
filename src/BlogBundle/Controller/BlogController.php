@@ -35,10 +35,10 @@ class BlogController extends Controller
     {
         $wtf=$this->getDoctrine();
         $teaserRepository=$wtf->getRepository("BlogBundle:Blog");
-        $totalBlog=$teaserRepository->searchAllBlogCount();
-        var_dump($totalBlog);
+        //$totalBlog=$teaserRepository->searchAllBlogCount();
+        //var_dump($totalBlog);
         $teasers=$teaserRepository->findBlog(['page'=>2]);
-        var_dump($totalBlog);
+        //var_dump($totalBlog);
 //        $teasers=$teaserRepository->findAll();
         return $this->render("BlogBundle:Blog:teaser.html.twig",[
             'teasers'=>$teasers
