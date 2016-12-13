@@ -30,3 +30,6 @@ admin_blog_edit:
   defaults: { _controller: BlogBundle:Admin:blogEdit}
   requirements :
       id: \d+
+
+logout:
+    path: BlogBundle:logout

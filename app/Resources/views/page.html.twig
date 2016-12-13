@@ -10,6 +10,11 @@
             {% endblock %}
 
             {% block main_menu %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <p>Админ</p>
+                {% else %}
+                    <p>Возможно гость</p>
+                {% endif %}
                 <div class="main-menu" id="menu_main_menu">
                     <div class="type-menu">
                         <ul>
