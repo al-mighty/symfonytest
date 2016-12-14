@@ -9,20 +9,12 @@ security:
 #            cost: 12
         BlogBundle\Entity\User:
             algorithm: bcrypt
-    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+
     providers:
-#        in_memory:
-#            memory:
-#                users:
-#                    admin:
-#                        password: $2y$12$zEcgd4uqzWZCMIMllM5HpO89ClAAgANSth0RIpBOI0pfOLJlqsXkW
-#                        roles: ROLE_ADMIN
         our_db_provider:
                     entity:
                         class: BlogBundle:User
-#                        property: username
-                        # if you're using multiple entity managers
-                        # manager_name: customer
+
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs

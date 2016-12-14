@@ -2,8 +2,10 @@
 
 namespace BlogBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use BlogBundle\Entity\UserRole;
 
 /**
  * @ORM\Table(name="Users")
@@ -15,6 +17,7 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="userId")
      */
     private $id;
 
@@ -43,7 +46,11 @@ class User implements UserInterface, \Serializable
         $this->isActive = true;
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid(null, true));
+        $this->
+        $this->id = new ArrayCollection();
     }
+
+
 
     public function isAccountNonExpired()
     {
@@ -84,7 +91,7 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        return array('ROLE_ADMIN');
+        $this->user_role;
     }
 
     public function eraseCredentials()

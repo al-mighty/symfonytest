@@ -10,3 +10,4 @@ var/*
 /bin/*
 /web/
 /vendor/
+sqlnet.log
