@@ -1,0 +1,5 @@
+var/cache/
+web/
+var/sessions/
+SymfonyBlogWeb 7.06.2016.zip
+.idea/
