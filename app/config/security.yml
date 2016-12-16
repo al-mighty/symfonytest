@@ -12,8 +12,8 @@ security:
 
     providers:
         our_db_provider:
-                    entity:
-                        class: BlogBundle:User
+            entity:
+                class: BlogBundle:User
 
 
     firewalls:
@@ -23,6 +23,7 @@ security:
             security: false
 
         main:
+            anonymous: true
             pattern:    ^/
             http_basic: ~
             provider: our_db_provider
