@@ -1,9 +1,9 @@
 <?php
 
-namespace BlagostBundle\Model\Maintenance;
+namespace BlogBundle\Model\Maintenance;
 
-use BlagostBundle\Entity\Security\Group;
-use BlagostBundle\Entity\Security\Role;
+use BlogBundle\Entity\Security\Group;
+use BlogBundle\Entity\Security\Role;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\Container;
 

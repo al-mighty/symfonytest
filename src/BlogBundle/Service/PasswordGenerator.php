@@ -1,10 +1,10 @@
 <?php
 
-namespace BlagostBundle\Service;
+namespace BlogBundle\Service;
 
 /**
  * Class PasswordGenerator
- * @package BlagostBundle\Service
+ * @package BlogBundle\Service
  */
 class PasswordGenerator
 {    

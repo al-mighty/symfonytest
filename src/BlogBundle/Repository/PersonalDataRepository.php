@@ -1,6 +1,6 @@
 <?php
 
-namespace BlagostBundle\Repository;
+namespace BlogBundle\Repository;
 
 class PersonalDataRepository extends BaseRepository
 {

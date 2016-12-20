@@ -1,8 +1,8 @@
 <?php
 
-namespace BlagostBundle\Repository;
+namespace BlogBundle\Repository;
 
-use BlagostBundle\Entity\Security\Role;
+use BlogBundle\Entity\Security\Role;
 
 class RoleRepository extends BaseRepository
 {

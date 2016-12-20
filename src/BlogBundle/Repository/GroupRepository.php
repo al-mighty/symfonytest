@@ -1,8 +1,8 @@
 <?php
 
-namespace BlagostBundle\Repository;
+namespace BlogBundle\Repository;
 
-use BlagostBundle\Entity\Security\Group;
+use BlogBundle\Entity\Security\Group;
 
 class GroupRepository extends BaseRepository
 {

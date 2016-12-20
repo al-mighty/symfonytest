@@ -1,20 +1,25 @@
 <?php
+
 namespace BlogBundle\Repository;
 
-use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
-use Doctrine\ORM\EntityRepository;
+use BlogBundle\Entity\BaseEntity;
 
-use Doctrine\ORM\Mapping as ORM;
-
-class UserRepository extends EntityRepository implements UserLoaderInterface
+class UserRepository extends BaseRepository
 {
-    public function loadUserByUsername($username)
+    /**
+     * @param BaseEntity $user
+     * @param array $options
+     * @return BaseEntity
+     * @throws \Exception
+     */
+    public function save(BaseEntity $user, array $options = [])
     {
-        return $this->createQueryBuilder('u')
-            ->where('u.username = :username OR u.email = :email')
-            ->setParameter('username', $username)
-            ->setParameter('email', $username)
-            ->getQuery()
-            ->getOneOrNullResult();
+        $encoder = isset($options['encoder']) ? $options['encoder'] : null;
+
+        if (!is_null($encoder) && !empty($user->getPassword())) {
+            $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
+        }
+
+        return parent::save($user, $options);
     }
 }

@@ -1,32 +1,28 @@
 <?php
 
-namespace BlagostBundle\Entity\Security;
+namespace BlogBundle\Entity\Security;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use BlagostBundle\Entity\BaseEntity;
+use BlogBundle\Entity\BaseEntity;
 
 /**
  * @ORM\Table(name="groups")
- * @ORM\Entity(repositoryClass="BlagostBundle\Repository\GroupRepository")
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\GroupRepository")
  */
 class Group extends BaseEntity
 {
     /**
      * Group codes
      */
-    const GROUP_CONGREGANT = 'congregant';
-    const GROUP_CASHIER    = 'cashier';
-    const GROUP_PRIEST     = 'priest';
-    const GROUP_ACCOUNTANT = 'accountant';
-    const GROUP_ADMIN      = 'admin';
+    const GROUP_USER      = 'user';
+    const GROUP_MODERATOR = 'moderator';
+    const GROUP_ADMIN     = 'admin';
 
     const GROUP_NAMES = [
-        self::GROUP_CONGREGANT => 'Прихожанин',
-        self::GROUP_CASHIER    => 'Кассир',
-        self::GROUP_PRIEST     => 'Настоятель',
-        self::GROUP_ACCOUNTANT => 'Бухгалтер РПЦ',
-        self::GROUP_ADMIN      => 'Глобальный администратор'
+        self::GROUP_USER      => 'Пользователь',
+        self::GROUP_MODERATOR => 'модератор',
+        self::GROUP_ADMIN     => 'Глобальный администратор'
     ];
 
     /**

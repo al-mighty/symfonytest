@@ -1,6 +1,6 @@
 <?php
 
-namespace BlagostBundle\Entity;
+namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

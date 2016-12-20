@@ -1,6 +1,6 @@
 <?php
 
-namespace BlagostBundle\Command;
+namespace BlogBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * This class is used in order to load data into database from PHP arrays
  *
- * @package BlagostBundle\Command
+ * @package BlogBundle\Command
  */
 class LoadCommand extends ContainerAwareCommand
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace BlagostBundle\Controller;
+namespace BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use BlagostBundle\C;
-use BlagostBundle\Entity\PersonalData;
-use BlagostBundle\Form\PersonalDataType;
+use BlogBundle\C;
+use BlogBundle\Entity\PersonalData;
+use BlogBundle\Form\PersonalDataType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,7 +43,7 @@ class GeneralController extends Controller
             return $this->redirectToRoute($this->get('auth_resolver')->getProfileRoute($request));
         }
 
-        return $this->render("BlagostBundle:{$group}:profile.html.twig", [
+        return $this->render("BlogBundle:{$group}:profile.html.twig", [
             'form' => $form->createView()
         ]);
     }

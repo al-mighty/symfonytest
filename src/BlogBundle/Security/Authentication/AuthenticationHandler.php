@@ -1,8 +1,8 @@
 <?php
 
-namespace BlagostBundle\Security\Authentication;
+namespace BlogBundle\Security\Authentication;
 
-use BlagostBundle\Exception\ProjectException;
+use BlogBundle\Exception\ProjectException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +13,7 @@ use Symfony\Component\Security\Http\Logout\LogoutSuccessHandlerInterface;
 
 /**
  * Class AuthenticationHandler
- * @package BlagostBundle\Security\Authentication
+ * @package BlogBundle\Security\Authentication
  */
 class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, LogoutSuccessHandlerInterface
 {

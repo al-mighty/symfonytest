@@ -10,37 +10,37 @@ services:
             - { name: kernel.event_listener, event: kernel.request, method: checkPdProcessingAccepted }
 
     authentication_handler:
-        class: BlagostBundle\Security\Authentication\AuthenticationHandler
+        class: BlogBundle\Security\Authentication\AuthenticationHandler
         arguments: ["@router", "@service_container"]
         tags:
               - { name: "monolog.logger", channel: "security" }
 
     auth_resolver:
-        class: BlagostBundle\Service\AuthResolver
+        class: BlogBundle\Service\AuthResolver
         arguments: ["@service_container", "@router"]
 
     password_generator:
-        class: BlagostBundle\Service\PasswordGenerator
+        class: BlogBundle\Service\PasswordGenerator
         arguments: []
 
     model.congregant:
-        class: BlagostBundle\Model\CongregantModel
+        class: BlogBundle\Model\CongregantModel
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]
 
     model.maintenance:
-        class: BlagostBundle\Model\Maintenance\MaintenanceModel
+        class: BlogBundle\Model\Maintenance\MaintenanceModel
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]
 
     model.personal_data:
-        class: BlagostBundle\Model\PersonalDataModel
+        class: BlogBundle\Model\PersonalDataModel
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]
 
     model.security:
-        class: BlagostBundle\Model\SecurityModel
+        class: BlogBundle\Model\SecurityModel
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]
 
     model.user:
-        class: BlagostBundle\Model\UserModel
+        class: BlogBundle\Model\UserModel
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]
 
     model.cashier:

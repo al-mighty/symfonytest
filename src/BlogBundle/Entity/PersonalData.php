@@ -1,12 +1,12 @@
 <?php
 
-namespace BlagostBundle\Entity;
+namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="personal_data")
- * @ORM\Entity(repositoryClass="BlagostBundle\Repository\PersonalDataRepository")
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\PersonalDataRepository")
  */
 class PersonalData extends BaseEntity
 {

@@ -1,7 +1,7 @@
 <?php
 
-namespace BlagostBundle\Repository;
-use BlagostBundle\Entity\BaseEntity;
+namespace BlogBundle\Repository;
+use BlogBundle\Entity\BaseEntity;
 use Doctrine\ORM\EntityRepository;
 
 class BaseRepository extends EntityRepository

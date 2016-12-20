@@ -1,17 +1,17 @@
 <?php
 
-namespace BlagostBundle\Service;
+namespace BlogBundle\Service;
 
-use BlagostBundle\Entity\Security\Group;
-use BlagostBundle\Entity\User;
-use BlagostBundle\Exception\ProjectException;
+use BlogBundle\Entity\Security\Group;
+use BlogBundle\Entity\User;
+use BlogBundle\Exception\ProjectException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Router;
 
 /**
  * Class AuthResolver
- * @package BlagostBundle\Service
+ * @package BlogBundle\Service
  */
 class AuthResolver
 {

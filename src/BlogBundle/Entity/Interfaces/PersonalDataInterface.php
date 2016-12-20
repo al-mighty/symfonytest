@@ -1,8 +1,8 @@
 <?php
 
-namespace BlagostBundle\Entity\Interfaces;
+namespace BlogBundle\Entity\Interfaces;
 
-use BlagostBundle\Entity\PersonalData;
+use BlogBundle\Entity\PersonalData;
 
 interface PersonalDataInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace BlagostBundle\Entity\Traits;
+namespace BlogBundle\Entity\Traits;
 
 trait StateDateTrait
 {

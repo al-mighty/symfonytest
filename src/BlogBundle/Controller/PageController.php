@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: progi
- * Date: 07.07.2016
- * Time: 1:01
- */
 
 namespace BlogBundle\Controller;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace BlagostBundle\Entity;
+namespace BlogBundle\Entity;
 
-use BlagostBundle\Entity\Interfaces\PersonalDataInterface;
+use BlogBundle\Entity\Interfaces\PersonalDataInterface;
 use Doctrine\ORM\Mapping as ORM;
-use BlagostBundle\Entity\Traits\StateDateTrait;
+use BlogBundle\Entity\Traits\StateDateTrait;
 
 /**
  * @ORM\Table(name="congregants")
- * @ORM\Entity(repositoryClass="BlagostBundle\Repository\CongregantRepository")
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\CongregantRepository")
  */
 class Congregant extends BaseEntity implements PersonalDataInterface
 {

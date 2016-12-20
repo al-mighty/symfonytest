@@ -1,14 +1,14 @@
 <?php
 
-namespace BlagostBundle\Entity\Security;
+namespace BlogBundle\Entity\Security;
 
-use BlagostBundle\Entity\BaseEntity;
+use BlogBundle\Entity\BaseEntity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Role\RoleInterface;
 
 /**
  * @ORM\Table(name="roles")
- * @ORM\Entity(repositoryClass="BlagostBundle\Repository\RoleRepository")
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\RoleRepository")
  */
 class Role extends BaseEntity implements RoleInterface
 {

@@ -2,192 +2,66 @@
 
 namespace BlogBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use BlogBundle\Entity\Traits\StateDateTrait;
+use BlogBundle\Entity\Security\Group;
 use Symfony\Component\Security\Core\User\UserInterface;
-
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="BlogBundle\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User extends BaseEntity implements UserInterface
 {
-	/**
-	 * @ORM\Column(type="integer")
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	private $id;
-	
-	/**
-	 * @ORM\Column(type="string", length=25, unique=true)
-	 */
-	private $username;
-	
-	/**
-	 * @ORM\Column(type="string", length=64)
-	 */
-	private $password;
-	
-	/**
-	 * @ORM\Column(type="string", length=60, unique=true)
-	 */
-	private $email;
-	
-	/**
-	 * @ORM\Column(name="is_active", type="boolean")
-	 */
-	private $isActive;
-	/**
-	 * @var ArrayCollection
-	 * @ORM\ManyToMany(targetEntity="Role", inversedBy="users")
-	 */
-	private $roles;
-	/**
-	 * @ORM\Column(type="string")
-	 */
-	private $salt;
-	
-	public function __construct()
-	{
-		$this->isActive = true;
-		// may not be needed, see section on salt below
-		$this->salt = md5(uniqid(null, true));
-		$this->roles = new ArrayCollection();
-		
-	}
-	
-	
-	
-	public function isAccountNonExpired()
-	{
-		return true;
-	}
-	
-	public function isAccountNonLocked()
-	{
-		return true;
-	}
-	
-	public function isCredentialsNonExpired()
-	{
-		return true;
-	}
-	
-	public function isEnabled()
-	{
-		return $this->isActive;
-	}
-	
-	public function getUsername()
-	{
-		return $this->username;
-	}
-	
-	public function getSalt()
-	{
-		
-		return $this->salt;
-	}
-	
-	public function getPassword()
-	{
-		return $this->password;
-	}
-	
-	public function getRoles()
-	{
-		$this->roles->toArray();
-	}
-	
-	public function eraseCredentials()
-	{
-	}
-	
-	/** @see \Serializable::serialize() */
-	public function serialize()
-	{
-		return serialize(array(
-			$this->id,
-			$this->username,
-			$this->password,
-			$this->isActive,
-			// see section on salt below
-			// $this->salt,
-		));
-	}
-	
-	/** @see \Serializable::unserialize() */
-	public function unserialize($serialized)
-	{
-		list (
-			$this->id,
-			$this->username,
-			$this->password,
-			$this->isActive,
-			// see section on salt below
-			// $this->salt
-			) = unserialize($serialized);
-	}
-	
-	
+    use StateDateTrait;
 
     /**
-     * Get id
-     *
-     * @return integer
+     * @ORM\Column(type="string", length=45)
      */
-    public function getId()
+    private $login;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=128)
+     */
+    private $password;
+
+    /**
+     * @ORM\Column(type="string", length=1, nullable=true)
+     */
+    private $pd_processing_accepted;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="BlogBundle\Entity\Security\Group")
+     * @ORM\JoinTable(name="users_groups",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     *      )
+     */
+    private $groups;
+
+    public function __construct()
     {
-        return $this->id;
+        $this->groups = new ArrayCollection();
     }
 
     /**
-     * Set username
-     *
-     * @param string $username
-     *
-     * @return User
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    
-        return $this;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    
-        return $this;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
+     * @param $email
      * @return User
      */
     public function setEmail($email)
     {
         $this->email = $email;
-    
+
         return $this;
     }
 
     /**
-     * Get email
-     *
      * @return string
      */
     public function getEmail()
@@ -196,64 +70,113 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set isActive
-     *
-     * @param boolean $isActive
-     *
+     * @param $login
      * @return User
      */
-    public function setIsActive($isActive)
+    public function setUsername($login)
     {
-        $this->isActive = $isActive;
-    
+        $this->login = $login;
+
         return $this;
     }
 
     /**
-     * Get isActive
-     *
-     * @return boolean
+     * @return string
      */
-    public function getIsActive()
+    public function getUsername()
     {
-        return $this->isActive;
+        return $this->login;
     }
 
     /**
-     * Add role
-     *
-     * @param \BlogBundle\Entity\Role $role
-     *
+     * @param $password
      * @return User
      */
-    public function addRole(\BlogBundle\Entity\Role $role)
+    public function setPassword($password)
     {
-        $this->roles[] = $role;
-    
+        $this->password = $password;
+
         return $this;
     }
 
     /**
-     * Remove role
-     *
-     * @param \BlogBundle\Entity\Role $role
+     * @return string
      */
-    public function removeRole(\BlogBundle\Entity\Role $role)
+    public function getPassword()
     {
-        $this->roles->removeElement($role);
+        return $this->password;
+    }
+
+    public function getSalt()
+    {
+        return null;
     }
 
     /**
-     * Set salt
-     *
-     * @param string $salt
-     *
+     * @param ArrayCollection $groups
+     */
+    public function setGroups(ArrayCollection $groups)
+    {
+        $this->groups = $groups;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+        $codes = [];
+
+        foreach ($this->getGroupObjects() as $group) {
+            foreach ($group->getRoles() as $role) {
+                $codes[] = $role->getRole();
+            }
+        }
+
+        return array_unique($codes);
+    }
+
+    /**
+     * @return array
+     */
+    public function getGroups()
+    {
+        $groups = $this->getGroupObjects()->map(function(Group $group) {
+            return $group->getCode();
+        });
+
+        return $groups->toArray();
+    }
+
+    public function eraseCredentials()
+    {
+        return null;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGroupObjects()
+    {
+        return $this->groups;
+    }
+
+    /**
+     * @return string
+     */
+    public function isPdProcessingAccepted()
+    {
+        return $this->pd_processing_accepted == self::VALUE_YES;
+    }
+
+    /**
+     * @param $pd_processing_accepted
      * @return User
      */
-    public function setSalt($salt)
+    public function setPdProcessingAccepted($pd_processing_accepted)
     {
-        $this->salt = $salt;
-    
+        $this->pd_processing_accepted = $pd_processing_accepted ? self::VALUE_YES : self::VALUE_NO;
+
         return $this;
     }
 }

@@ -13,7 +13,11 @@ blog_view:
   requirements :
     id: \d+
 
-admin_page:
+login_page:
+  path: /login
+  defaults: { _controller: BlogBundle:Security:login }
+
+zdmin_page:
   path: /admin
   defaults: { _controller: BlogBundle:Admin:index }
 
