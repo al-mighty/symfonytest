@@ -1,0 +1,14 @@
+{% extends 'StuntBundle:Layout:layout.html.twig' %}
+
+{% import 'StuntBundle:Template:macroses.html.twig' as macroses %}
+
+{% block body %}
+    {{ form_start(form, {'action': path('registration')}) }}
+        <h3>Регистрация</h3>
+        {{ macroses.text_field(form.login, 160) }}
+        {{ macroses.text_field(form.email, 160) }}
+        {{ macroses.text_field(form.password.first, 160) }}
+        {{ macroses.text_field(form.password.second, 160) }}
+        {{ macroses.button_field(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}
