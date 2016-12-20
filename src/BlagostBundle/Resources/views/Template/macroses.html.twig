@@ -1,0 +1,17 @@
+{% macro text_field(field, width = false) %}
+    <div class="field_item">
+        <div class="field_label"{% if width %} style="width: {{ width }}px"{% endif %}>
+            {{ form_label(field) }}
+        </div>
+
+        <div class="field_widget">
+            {{ form_widget(field) }}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro button_field(field) %}
+    <div class="field_item">
+        {{ form_widget(field) }}
+    </div>
+{% endmacro %}

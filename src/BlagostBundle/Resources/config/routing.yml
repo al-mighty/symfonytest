@@ -1,0 +1,28 @@
+# Default
+default:
+    path: /
+    defaults: { _controller: "BlagostBundle:Default:index" }
+    options:
+        expose: true
+
+# Security
+registration:
+    path: /register
+    defaults: { _controller: "BlagostBundle:Security:registration" }
+
+login:
+    path: /login
+    defaults: { _controller: "BlagostBundle:Security:login" }
+
+logout:
+    path: /logout
+
+# User
+accept_pd_processing:
+    path: /accept_pd_processing
+    defaults: { _controller: "BlagostBundle:User:acceptPdProcessing" }
+
+# Congregant
+congregant_index:
+    path: /congregant
+    defaults: { _controller: "BlagostBundle:Congregant:index" }

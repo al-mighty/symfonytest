@@ -1,0 +1,32 @@
+services:
+#    blagost.example:
+#        class: BlagostBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    app.accept_pd_processing_listener:
+        class: BlagostBundle\Listener\KernelRequestListener
+        arguments: ["@service_container"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: checkPdProcessingAccepted }
+
+    authentication_handler:
+        class: BlagostBundle\Security\Authentication\AuthenticationHandler
+        arguments: ["@router", "@service_container"]
+        tags:
+              - { name: "monolog.logger", channel: "security" }
+
+    auth_resolver:
+        class: BlagostBundle\Service\AuthResolver
+        arguments: ["@service_container"]
+
+    model.maintenance:
+        class: BlagostBundle\Model\Maintenance\MaintenanceModel
+        arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+
+    model.security:
+        class: BlagostBundle\Model\SecurityModel
+        arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+
+    model.user:
+        class: BlagostBundle\Model\UserModel
+        arguments: ["@doctrine.orm.entity_manager", "@service_container"]
