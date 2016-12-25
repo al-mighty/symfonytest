@@ -17,3 +17,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    redis_dsn_default: redis://localhost
+    redis_dsn_session: redis://localhost/1
+
+    fixture.members: '%kernel.root_dir%/config/fixtures/members.yml'

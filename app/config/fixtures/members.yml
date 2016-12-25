@@ -1,0 +1,51 @@
+-
+    user:
+        username: 79009009100
+        email: member0@fixture.ru
+        password:  pwd
+        state: active
+        stateDate: 14-12-2016 14:00:00
+        createDate:  14-12-2016 00:00:00
+    personalData:
+        firstName: Иван
+        middleName: Иванович
+        lastName: Иванов
+        phoneNumber: 79009009100
+    state: active
+    stateDate: 14-12-2016 14:00:00
+    createDate:  14-12-2016 00:00:00
+    balance: 1000
+-
+    user:
+        username: 79009009101
+        email: member1@fixture.ru
+        password:  pwd
+        state: active
+        stateDate: 14-12-2016 14:00:00
+        createDate:  14-12-2016 00:00:00
+    personalData:
+        firstName: Петр
+        middleName: Иванович
+        lastName: Иванов
+        phoneNumber: 79009009100
+    state: active
+    stateDate: 14-12-2016 14:00:00
+    createDate:  14-12-2016 00:00:00
+    balance: 1001
+-
+    user:
+        username: 79009009102
+        email: member2@fixture.ru
+        password:  pwd
+        state: active
+        stateDate: 14-12-2016 14:00:00
+        createDate:  14-12-2016 00:00:00
+    personalData:
+        firstName: Сергей
+        middleName: Иванович
+        lastName: Иванов
+        phoneNumber: 79009009100
+    state: active
+    stateDate: 14-12-2016 14:00:00
+    createDate:  14-12-2016 00:00:00
+    balance: 1002

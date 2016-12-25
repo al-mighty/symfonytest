@@ -1,0 +1,13 @@
+<h1 class="left">Система "Лень писать"</h1>
+
+<div class="right auth_block">
+    {% if app.user %}
+        <span class="user_info">Вы вошли как <b>{{ app.user.username }}</b></span>
+        <a class="btn btn-lg btn-danger" href="{{ path('logout') }}">Выход</a>
+    {% else %}
+        <a class="btn btn-lg btn-warning" href="{{ path('login') }}">Вход</a>
+        <a class="btn btn-lg btn-warning" href="{{ path('registration') }}">Регистрация</a>
+    {% endif %}
+</div>
+
+<div class="clear"></div>

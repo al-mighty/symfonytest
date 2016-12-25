@@ -1,0 +1,154 @@
+/* common */
+* {
+    font-size: 16px;
+    line-height: 18px;
+}
+
+html {
+    height: 100%;
+}
+
+html, body {
+    border: 0;
+    margin: 0;
+    min-width: 100%;
+    padding: 0;
+    -webkit-text-size-adjust: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+    float: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+img {
+    border: 0 none;
+}
+
+.wrapper {
+    height: auto !important;
+    margin: 0 auto;
+    max-width: 1920px;
+    min-height: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+.content {
+    box-shadow: 7px 0 11px -5px #aaa, -7px 0 11px -5px #aaa;
+    padding: 10px 0;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1190px;
+    min-width: 980px;
+    padding: 0 10px;
+}
+
+/* header */
+header {
+    box-shadow: 7px 0 11px -5px #aaa, -7px 0 11px -5px #aaa;
+    height: 120px;
+}
+
+.auth_block {
+    padding-top: 20px;
+}
+
+.auth_block span, .auth_block a {
+    vertical-align: baseline;
+}
+
+.user_info {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+/* footer */
+
+footer {
+    padding: 10px 0;
+}
+
+/* forms */
+.field_item {
+    margin: 10px 0;
+}
+
+.field_label, .field_widget {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.field_label_block, .field_widget_block {
+    display: block;
+}
+
+#form_login label {
+    width: 80px;
+}
+
+/* PD processing policy */
+.policy textarea {
+    height: 300px;
+    margin: 30px 0;
+    padding: 20px;
+    resize: none;
+    width: 100%;
+}
+
+.policy label.checkbox_label {
+    display: block;
+}
+
+.policy input[type="submit"] {
+    display: inline-block;
+}
+
+/* navigation */
+.navbar ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.navbar ul li a {
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+/* personal area */
+.pa_menu ul li {
+    margin: 10px 0;
+}
+
+/* Members: orders list */
+.orders-list-filter > div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.list-group-item {
+    margin: 5px 0;
+}

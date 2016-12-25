@@ -1,0 +1,52 @@
+{% extends 'MainBundle:Layout:layout.html.twig' %}
+
+{% import 'MainBundle:Template:macroses.html.twig' as macroses %}
+
+{% block body %}
+
+    <h2>Мои заказы</h2>
+    <h4>Здесь вы можете просмотреть список своих заказов</h4>
+
+    <section class="orders-list-filter">
+        <div class="col-md-9">
+            {% if orders is not empty %}
+                <div class="list-group">
+                    {% for order in orders %}
+                        <a class="list-group-item" href="#">
+                            <h4 class="list-group-item-heading">{{ order.getService().getName() }}</h4>
+                            <p class="list-group-item-text"><b>Храм:</b> {{ order.getTemple().getName() }}</p>
+                            <p class="list-group-item-text"><b>№ заказа:</b> {{ order.getGroup() }}</p>
+                            <p class="list-group-item-text"><b>Имена:</b> {{ order.getData() }}</p>
+
+                            <p class="list-group-item-text">
+                                <b>Статус заказа:</b> {{ order.getState() | trans([], 'order_states') }}
+                            </p>
+
+                            <p class="list-group-item-text"><b>Стоимость:</b> {{ order.getPrice() }} руб.</p>
+                            <p class="list-group-item-text"><b>Оплачено:</b> {{ order.getPaid() }} руб.</p>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Вы еще не сделали ни одного заказа</p>
+            {% endif %}
+        </div>
+
+        <div class="col-md-3">
+            <h4>Фильтры для поиска</h4>
+
+            {{ form_start(form, {'attr': {'id': 'filter-form'}}) }}
+            {{ macroses.text_field_vertical(form.service) }}
+            {{ macroses.text_field_vertical(form.temple) }}
+            {{ macroses.text_field_vertical(form.order_state) }}
+            {{ form_end(form) }}
+
+            <button type="button" id="submit" name="submit" class="btn btn-primary" onclick="document.getElementById('filter-form').submit();">
+                Показать
+            </button>
+        </div>
+    </section>
+
+    <div class="clear"></div>
+
+{% endblock %}

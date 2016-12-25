@@ -1,0 +1,13 @@
+<div class="navbar">
+    <ul>
+        <li>
+            <a href="{{ path('default') }}">Главная</a>
+        </li>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li>
+                <a href="{{ path(default_route) }}">Личный кабинет</a>
+            </li>
+        {% endif %}
+    </ul>
+</div>

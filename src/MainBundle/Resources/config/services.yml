@@ -1,4 +1,54 @@
 services:
-#    main.example:
-#        class: MainBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+#s
+
+    app.accept_pd_processing_listener:
+        class: MainBundle\Listener\KernelRequestListener
+        arguments: ["@service_container"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: checkPdProcessingAccepted }
+
+
+    authentication_handler:
+        class: MainBundle\Security\Authentication\AuthenticationHandler
+        arguments: ["@router", "@service_container"]
+        tags:
+              - { name: "monolog.logger", channel: "security" }
+
+    auth_resolver:
+        class: MainBundle\Service\AuthResolver
+        arguments: ["@service_container", "@router"]
+
+
+    model.Members:
+        class: MainBundle\Model\MembersModel
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    model.maintenance:
+        class: MainBundle\Model\Maintenance\MaintenanceModel
+        arguments: ["@doctrine.orm.entity_manager", "@model.security"]
+
+
+    model.personal_data:
+        class: MainBundle\Model\PersonalDataModel
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    model.security:
+        class: MainBundle\Model\SecurityModel
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@password_generator"
+            - "@security.password_encoder"
+            - "@model.Members"
+
+    model.service:
+        class: MainBundle\Model\ServiceModel
+        arguments: ["@doctrine.orm.entity_manager"]
+
+
+    model.user:
+        class: MainBundle\Model\UserModel
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    password_generator:
+        class: MainBundle\Service\PasswordGenerator
+        arguments: []

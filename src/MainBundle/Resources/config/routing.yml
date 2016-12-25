@@ -1,0 +1,25 @@
+#main:
+#    resource: "@MainBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
+default:
+    path: /
+    defaults: { _controller: "MainBundle:Default:index" }
+    options:
+        expose: true
+
+# Security
+registration:
+    path: /register
+    defaults: { _controller: "MainBundle:Security:registration" }
+
+login:
+    path: /login
+    defaults: { _controller: "MainBundle:Security:login" }
+
+logout:
+    path: /logout
+
+forgot_password:
+    path: /forgot_password
+    defaults: { _controller: "MainBundle:Security:forgotPassword" }
