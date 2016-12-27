@@ -15,7 +15,7 @@ class Group extends BaseEntity
     /**
      * Group codes
      */
-    const GROUP_MEMBERS = 'MEMBERS';
+    const GROUP_MEMBERS = 'members';
     const GROUP_CASHIER    = 'cashier';
     const GROUP_PRIEST     = 'priest';
     const GROUP_ACCOUNTANT = 'accountant';

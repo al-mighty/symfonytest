@@ -24,7 +24,7 @@ class Role extends BaseEntity implements RoleInterface
         self::ROLE_CREATE_ORDER           => 'Создание заказа',
         self::ROLE_READ_ORDER             => 'Просмотр заказа',
         self::ROLE_MEMBERS_ORDERS_LIST => 'Просмотр прихожанином списка его заказов',
-        self::ROLE_MEMBERS_PA          => 'Работа с личным кабинетом прихожанина',
+        self::ROLE_MEMBERS_PA          => 'Работа с личным кабинетом участника',
         self::ROLE_CASHIER_PA             => 'Работа с личным кабинетом кассира',
         self::ROLE_CASHIER_ORDER_SEARCH   => 'Поиск заказов кассиром',
         self::ROLE_EDIT_PD                => 'Редактирование персональных данных'

@@ -23,3 +23,11 @@ logout:
 forgot_password:
     path: /forgot_password
     defaults: { _controller: "MainBundle:Security:forgotPassword" }
+
+members_index:
+    path: /members
+    defaults: { _controller: "MainBundle:Members:index" }
+
+memberss_profile:
+    path: /members/profile
+    defaults: { _controller: "MainBundle:Members:profile" }

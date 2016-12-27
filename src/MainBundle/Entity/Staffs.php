@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 use MainBundle\Entity\Traits\StateDateTrait;
 
 /**
- * @ORM\Table(name="members")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\MembersRepository")
+ * @ORM\Table(name="staffs")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\StaffsRepository")
  */
-class Members extends BaseEntity implements PersonalDataInterface
+class Staffs extends BaseEntity implements PersonalDataInterface
 {
     use StateDateTrait;
 
@@ -27,13 +27,14 @@ class Members extends BaseEntity implements PersonalDataInterface
     private $personalData;
 
     /**
-     * @ORM\Column(type="float")
-     */
-    private $balance;
+     * @ORM\ManyToOne(targetEntity="Storage")
+* @ORM\JoinColumn(name="staff_storages_id", referencedColumnName="id")
+*/
+    private $staffStoragesId;
 
     /**
      * @param PersonalData $personalData
-     * @return Members
+     * @return staffs
      */
     public function setPersonalData(PersonalData $personalData)
     {
@@ -52,7 +53,7 @@ class Members extends BaseEntity implements PersonalDataInterface
 
     /**
      * @param User $user
-     * @return Members
+     * @return Staffs
      */
     public function setUser(User $user)
     {
@@ -69,22 +70,28 @@ class Members extends BaseEntity implements PersonalDataInterface
         return $this->user;
     }
 
+
     /**
-     * @return float
+     * Set staffStoragesId
+     *
+     * @param \MainBundle\Entity\Storage $staffStoragesId
+     *
+     * @return Staffs
      */
-    public function getBalance()
+    public function setStaffStoragesId(\MainBundle\Entity\Storage $staffStoragesId = null)
     {
-        return $this->balance;
+        $this->staffStoragesId = $staffStoragesId;
+
+        return $this;
     }
 
     /**
-     * @param $balance
-     * @return Members
+     * Get staffStoragesId
+     *
+     * @return \MainBundle\Entity\Storage
      */
-    public function setBalance($balance)
+    public function getStaffStoragesId()
     {
-        $this->balance = $balance;
-
-        return $this;
+        return $this->staffStoragesId;
     }
 }
