@@ -1,0 +1,41 @@
+#main:
+#    resource: "@MainBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
+default:
+    path: /
+    defaults: { _controller: "MainBundle:Default:index" }
+    options:
+        expose: true
+
+# Security
+registration:
+    path: /register
+    defaults: { _controller: "MainBundle:Security:registration" }
+
+login:
+    path: /login
+    defaults: { _controller: "MainBundle:Security:login" }
+
+logout:
+    path: /logout
+
+forgot_password:
+    path: /forgot_password
+    defaults: { _controller: "MainBundle:Security:forgotPassword" }
+
+members_index:
+    path: /members
+    defaults: { _controller: "MainBundle:Members:index" }
+
+members_profile:
+    path: /members/profile
+    defaults: { _controller: "MainBundle:Members:profile" }
+
+worker_store_index:
+    path: /storekeeper
+    defaults: { _controller: "MainBundle:Staffs:index" }
+
+storage_index:
+    path: /storage
+    defaults: { _controller: "MainBundle:Staffs:productOnStorage" }

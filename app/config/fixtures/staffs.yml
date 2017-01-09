@@ -1,0 +1,36 @@
+-
+    stock:
+        stock: komendant
+    user:
+        username: 79009009200
+        email: workerstore0@fixture.ru
+        password:  pwd
+        state: active
+        stateDate: 14-12-2016 14:00:00
+        createDate:  14-12-2016 00:00:00
+    personalData:
+        firstName: Иван0
+        middleName: Иванович
+        lastName: Иванов
+        phoneNumber: 79009009200
+    state: active
+    stateDate: 14-12-2016 14:00:00
+    createDate:  14-12-2016 00:00:00
+-
+    stock:
+        stock: sizova
+    user:
+        username: 79009009201
+        email: workerstore1@fixture.ru
+        password:  pwd
+        state: active
+        stateDate: 14-12-2016 14:00:00
+        createDate:  14-12-2016 00:00:00
+    personalData:
+        firstName: Иван1
+        middleName: Иванович
+        lastName: Иванов
+        phoneNumber: 79009009201worker
+    state: active
+    stateDate: 14-12-2016 14:00:00
+    createDate:  14-12-2016 00:00:00

@@ -1,0 +1,19 @@
+{% extends 'MainBundle:Layout:layout.html.twig' %}
+
+{% import 'MainBundle:Template:macroses.html.twig' as macroses %}
+
+{% block body %}
+
+    <h2>Создание нового заказа</h2>
+    <h4>Пожалуйста, заполните форму и нажмите кнопку "Создать"</h4>
+
+    {{ form_start(form) }}
+    {{ macroses.text_field_vertical(form.service) }}
+    {{ macroses.text_field_vertical(form.temples) }}
+    {{ macroses.text_field_vertical(form.names) }}
+    {{ macroses.text_field_vertical(form.saints) }}
+    {{ macroses.checkbox_field(form.is_express) }}
+    {{ macroses.button_field(form.submit) }}
+    {{ form_end(form) }}
+
+{% endblock %}

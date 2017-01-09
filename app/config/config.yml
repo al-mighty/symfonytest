@@ -2,16 +2,16 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@StuntBundle/Resources/config/services.yml" }
+    - { resource: "@MainBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: ru
+    locale: en
 
 framework:
     #esi:             ~
-    translator:      { fallbacks: ["%locale%"] }
+    #translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -22,19 +22,25 @@ framework:
     #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
+#        assets_version_format:  "%%s?ver=%%s"
+#        assets_version: "%assets_version%"
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
-        handler_id:  snc_redis.session.handler
-        #save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        handler_id:  session.handler.native_file
+#        handler_id:  snc_redis.session.handler
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
     fragments:       ~
     http_method_override: true
-    assets: ~
+    assets:
+#        version: 'v5'
+        version_format: '%%s?v=%%s'
+#        base_path: ~
+#            version_strategy: 'app.assets.versioning.gulp_buster'
     php_errors:
         log: true
-
 
 # Twig Configuration
 twig:

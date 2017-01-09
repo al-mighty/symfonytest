@@ -1,5 +1,5 @@
 app:
-    resource: "@StuntBundle/Resources/config/routing.yml"
+    resource: "@MainBundle/Resources/config/routing.yml"
     prefix: /
 
 fos_js_routing:

@@ -4,7 +4,7 @@
 parameters:
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     Stunt_db
+    database_name:     symfony
     database_user:     root
     database_password: ~
     # You should uncomment this if you want use pdo_sqlite
@@ -21,5 +21,7 @@ parameters:
     redis_dsn_default: redis://localhost
     redis_dsn_session: redis://localhost/1
 
-    fixture.congregant: '%kernel.root_dir%/config/fixtures/congregant.yml'
-    fixture.priest: '%kernel.root_dir%/config/fixtures/priest.yml'
+    fixture.members: '%kernel.root_dir%/config/fixtures/members.yml'
+    fixture.staffs: '%kernel.root_dir%/config/fixtures/staffs.yml'
+    fixture.products: '%kernel.root_dir%/config/fixtures/products.yml'
+    fixture.storage: '%kernel.root_dir%/config/fixtures/storage.yml'

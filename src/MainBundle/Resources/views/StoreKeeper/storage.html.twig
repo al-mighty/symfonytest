@@ -1,0 +1,58 @@
+{% extends 'MainBundle:Layout:layout.html.twig' %}
+
+{% block body %}
+
+    <h2>Просмотр ревизий</h2>
+    {{ form_start(form) }}
+    {{ macroses.text_field(form.last_name, 140) }}
+    {{ macroses.text_field(form.first_name, 140) }}
+    {{ macroses.text_field(form.middle_name, 140) }}
+    {{ macroses.text_field(form.phone_number, 140) }}
+    {{ macroses.button_field(form.submit) }}
+    {{ form_end(form) }}
+
+    <table class="table table-striped">
+        <tr>
+            <th>#</th>
+            <th>login</th>
+            <th>group</th>
+            <th>group</th>
+            <th>group</th>
+        </tr>
+        {#{% if users is defined %}#}
+        {% for key, value in storage %}
+            <tr>
+                <td>{{ value.stock.stock }}</td>
+                <td>{{ value.product.product }}</td>
+                <td>{{ value.store.store }}</td>
+                <td>{{ value.countStock }}</td>
+                <td>{{ value.countStore }}</td>
+                {#<td>{{ user.groups[0] }}</td>#}
+            </tr>
+        {% endfor %}
+        {#{% endif %}#}
+    </table>
+
+    <div class="pa_menu">
+        <ul>
+            {% if is_granted('ROLE_EDIT_PD') %}
+                <li>
+                    <a href="{{ path(profile_route) }}">Редактировать личные данные</a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_CREATE_ORDER') %}
+                <li>
+                    <a href="{{ path('Members_create_order') }}">Создать заказ</a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_Members_ORDERS_LIST') %}
+                <li>
+                    <a href="{{ path('Members_orders_list') }}">Мои заказы</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+
+{% endblock %}

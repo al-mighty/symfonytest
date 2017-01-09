@@ -1,20 +1,14 @@
 {
-    "name": "symfony/Stunt",
-    "license": "proprietary",
+    "name": "symfony/framework-standard-edition",
+    "license": "MIT",
     "type": "project",
+    "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-4": {
-            "": "src/"
-        },
-        "classmap": [
-            "app/AppKernel.php",
-            "app/AppCache.php"
-        ]
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
+        "psr-4": { "Tests\\": "tests/" }
     },
     "require": {
         "php": ">=5.5.9",
@@ -26,16 +20,18 @@
         "symfony/monolog-bundle": "^3.0",
         "symfony/polyfill-apcu": "^1.0",
         "sensio/distribution-bundle": "^5.0",
-        "sensio/framework-extra-bundle": "^3.0.2",
+        "sensio/framework-extra-bundle": "^3.0",
         "incenteev/composer-parameter-handler": "^2.0",
-        "friendsofsymfony/jsrouting-bundle": "^1.6",
+        "predis/predis": "^1.1",
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
         "snc/redis-bundle": "^2.0",
-        "predis/predis": "^1.1"
+        "symfony/phpunit-bridge": "^3.2",
+        "friendsofsymfony/jsrouting-bundle": "^1.6",
+        "symfony/assetic-bundle": "^2.8",
+        "ajaxray/gulp-buster-bundle": "1.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0",
-        "doctrine/doctrine-fixtures-bundle": "^2.3"
+        "sensio/generator-bundle": "^3.0"
     },
     "scripts": {
         "symfony-scripts": [
@@ -53,6 +49,11 @@
             "@symfony-scripts"
         ]
     },
+    "config": {
+        "platform": {
+            "php": "5.5.9"
+        }
+    },
     "extra": {
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",
@@ -63,6 +64,8 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         },
-        "branch-alias": null
+        "branch-alias": {
+            "dev-master": "3.2-dev"
+        }
     }
 }

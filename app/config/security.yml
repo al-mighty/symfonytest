@@ -2,15 +2,15 @@
 # http://symfony.com/doc/current/security.html
 security:
     encoders:
-        StuntBundle\Entity\User:
-            algorithm: bcrypt
-            cost: 4
+      MainBundle\Entity\User:
+        algorithm: bcrypt
+        cost: 4
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         db_provider:
             entity:
-                class: StuntBundle:User
+                class: MainBundle:User
                 property: login
 
     firewalls:
@@ -30,7 +30,6 @@ security:
                 path:   /logout
                 target: /
                 success_handler: authentication_handler
-
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -40,4 +39,4 @@ security:
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
 
     access_control:
-        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }

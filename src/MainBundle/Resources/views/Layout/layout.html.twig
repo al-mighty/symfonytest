@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    {% block link %}
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap-theme.min.css') }}">
+        <style>
+            /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+            body {
+                overflow: hidden;
+                background: #fff;
+            }
+            #stats {
+                display:none;
+            }
+
+        </style>
+    {% endblock %}
+
+
+    <title>Колхоз продакшн</title>
+</head>
+
+<body>
+<div id="body">
+    <canvas id="cosmos"></canvas>
+    {% block wrapper %}
+        <div class="wrapper">
+            <header>
+                <div class="inner">
+                    {{ render(controller('MainBundle:Default:header')) }}
+                    {{ render(controller('MainBundle:Default:navbar')) }}
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="inner">
+                    {% include 'MainBundle:Layout:alert.html.twig' %}
+                    {% block body %}{% endblock %}
+                </div>
+            </section>
+
+            <footer>
+                <div class="inner">
+                    <p class="center">Copyright &copy; 2016 Система «лень писать»</p>
+                </div>
+            </footer>
+        </div>
+    {% endblock %}
+</div>
+
+
+{% block script %}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
+    <script src="{{ asset('assets/js/vendor/particles.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+{% endblock %}
+</body>
+</html>

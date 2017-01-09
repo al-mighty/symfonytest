@@ -1,0 +1,49 @@
+{% extends 'MainBundle:Layout:layout.html.twig' %}
+
+{% block body %}
+
+    <h2>Личный кабинет участника</h2>
+    {#<p><b>Мой баланс: </b>{{ Members.getBalance() | number_format(2, '.', ' ') }} руб.</p>#}
+    {#{{  }}#}
+    {#{% for key, user in users %}#}
+    {#{{ user.username }}#}
+    {#{{ user.groups.key }}#}
+    {#{% endfor %}#}
+
+    <table class="table table-striped">
+        <tr>
+            <th>#</th>
+            <th>login</th>
+            <th>group</th>
+        </tr>
+        {% for key, user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username|e }}</td>
+                <td>{{ user.groups[0] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div class="pa_menu">
+        <ul>
+            {% if is_granted('ROLE_EDIT_PD') %}
+                <li>
+                    <a href="{{ path(profile_route) }}">Редактировать личные данные</a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_CREATE_ORDER') %}
+                <li>
+                    <a href="{{ path('Members_create_order') }}">Создать заказ</a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_Members_ORDERS_LIST') %}
+                <li>
+                    <a href="{{ path('Members_orders_list') }}">Мои заказы</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+
+{% endblock %}

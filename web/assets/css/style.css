@@ -1,4 +1,9 @@
 /* common */
+* {
+    font-size: 16px;
+    line-height: 18px;
+}
+
 html {
     height: 100%;
 }
@@ -9,6 +14,12 @@ html, body {
     min-width: 100%;
     padding: 0;
     -webkit-text-size-adjust: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .clear {
@@ -32,14 +43,24 @@ img {
     border: 0 none;
 }
 
+#body{
+    position:relative;
+}
+#cosmos{
+    z-index: 1;
+}
 .wrapper {
-    height: auto !important;
+    z-index: 2;
     margin: 0 auto;
-    max-width: 1920px;
+    max-width: 1020px;
     min-height: 100%;
     overflow: hidden;
     padding: 0;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .content {
@@ -91,8 +112,12 @@ footer {
     vertical-align: baseline;
 }
 
+.field_label_block, .field_widget_block {
+    display: block;
+}
+
 #form_login label {
-    width: 60px;
+    width: 80px;
 }
 
 /* PD processing policy */
@@ -110,4 +135,30 @@ footer {
 
 .policy input[type="submit"] {
     display: inline-block;
+}
+
+/* navigation */
+.navbar ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.navbar ul li a {
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+/* personal area */
+.pa_menu ul li {
+    margin: 10px 0;
+}
+
+/* Members: orders list */
+.orders-list-filter > div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.list-group-item {
+    margin: 5px 0;
 }
