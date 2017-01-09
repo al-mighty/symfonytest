@@ -8,7 +8,7 @@ use MainBundle\Entity\Traits\StateDateTrait;
 
 /**
  * @ORM\Table(name="staffs")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\StaffsRepository")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\StaffRepository")
  */
 class Staffs extends BaseEntity implements PersonalDataInterface
 {
@@ -27,10 +27,10 @@ class Staffs extends BaseEntity implements PersonalDataInterface
     private $personalData;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Storage")
-* @ORM\JoinColumn(name="staff_storages_id", referencedColumnName="id")
-*/
-    private $staffStoragesId;
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Stock")
+     * @ORM\JoinColumn(name="stock_id", referencedColumnName="id")
+     */
+    private $stock;
 
     /**
      * @param PersonalData $personalData
@@ -72,26 +72,21 @@ class Staffs extends BaseEntity implements PersonalDataInterface
 
 
     /**
-     * Set staffStoragesId
-     *
-     * @param \MainBundle\Entity\Storage $staffStoragesId
-     *
+     * @param Stock $stock
      * @return Staffs
      */
-    public function setStaffStoragesId(\MainBundle\Entity\Storage $staffStoragesId = null)
+    public function setStock(Stock $stock)
     {
-        $this->staffStoragesId = $staffStoragesId;
+        $this->stock = $stock;
 
         return $this;
     }
 
     /**
-     * Get staffStoragesId
-     *
-     * @return \MainBundle\Entity\Storage
+     * @return Stock
      */
-    public function getStaffStoragesId()
+    public function getStock()
     {
-        return $this->staffStoragesId;
+        return $this->stock;
     }
 }

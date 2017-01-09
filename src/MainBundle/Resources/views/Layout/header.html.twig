@@ -1,12 +1,15 @@
-<h1 class="left">Система "Лень писать"</h1>
+<h1 class="left">Контроль склада</h1>
 
 <div class="right auth_block">
+
     {% if app.user %}
-        <span class="user_info">Вы вошли как <b>{{ app.user.username }}</b></span>
-        <a class="btn btn-lg btn-danger" href="{{ path('logout') }}">Выход</a>
+    <span class="user_info">Вы вошли как <b>{{ app.user.username }}</b></span>
+    <a class="btn btn-lg btn-danger" href="{{ path('logout') }}">Выход</a>
     {% else %}
-        <a class="btn btn-lg btn-warning" href="{{ path('login') }}">Вход</a>
-        <a class="btn btn-lg btn-warning" href="{{ path('registration') }}">Регистрация</a>
+        <div class="btn-group">
+            <a class="btn btn-lg btn-success" href="{{ path('login') }}">Вход</a>
+            <a class="btn btn-lg btn-info" href="{{ path('registration') }}">Регистрация</a>
+        </div>
     {% endif %}
 </div>
 

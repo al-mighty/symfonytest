@@ -26,7 +26,9 @@
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "snc/redis-bundle": "^2.0",
         "symfony/phpunit-bridge": "^3.2",
-        "friendsofsymfony/jsrouting-bundle": "^1.6"
+        "friendsofsymfony/jsrouting-bundle": "^1.6",
+        "symfony/assetic-bundle": "^2.8",
+        "ajaxray/gulp-buster-bundle": "1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0"

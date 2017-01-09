@@ -179,4 +179,62 @@ class User extends BaseEntity implements UserInterface
 
         return $this;
     }
+
+    /**
+     * Set login
+     *
+     * @param string $login
+     *
+     * @return User
+     */
+    public function setLogin($login)
+    {
+        $this->login = $login;
+
+        return $this;
+    }
+
+    /**
+     * Get login
+     *
+     * @return string
+     */
+    public function getLogin()
+    {
+        return $this->login;
+    }
+
+    /**
+     * Get pdProcessingAccepted
+     *
+     * @return string
+     */
+    public function getPdProcessingAccepted()
+    {
+        return $this->pd_processing_accepted;
+    }
+
+    /**
+     * Add group
+     *
+     * @param \MainBundle\Entity\Security\Group $group
+     *
+     * @return User
+     */
+    public function addGroup(\MainBundle\Entity\Security\Group $group)
+    {
+        $this->groups[] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Remove group
+     *
+     * @param \MainBundle\Entity\Security\Group $group
+     */
+    public function removeGroup(\MainBundle\Entity\Security\Group $group)
+    {
+        $this->groups->removeElement($group);
+    }
 }

@@ -30,4 +30,10 @@ class UserModel
         $user->setPdProcessingAccepted(true);
         $this->em->flush($user);
     }
+
+    public function allUsersRegister(){
+        $allUsers = $this->em->getRepository(User::class)->findAll();
+
+        return $allUsers;
+    }
 }

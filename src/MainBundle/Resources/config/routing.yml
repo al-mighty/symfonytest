@@ -28,6 +28,14 @@ members_index:
     path: /members
     defaults: { _controller: "MainBundle:Members:index" }
 
-memberss_profile:
+members_profile:
     path: /members/profile
     defaults: { _controller: "MainBundle:Members:profile" }
+
+worker_store_index:
+    path: /storekeeper
+    defaults: { _controller: "MainBundle:Staffs:index" }
+
+storage_index:
+    path: /storage
+    defaults: { _controller: "MainBundle:Staffs:productOnStorage" }

@@ -2,28 +2,37 @@
 
 {% block body %}
 
-    <h2>Личный кабинет участника</h2>
-    {#<p><b>Мой баланс: </b>{{ Members.getBalance() | number_format(2, '.', ' ') }} руб.</p>#}
-    {#{{  }}#}
-    {#{% for key, user in users %}#}
-    {#{{ user.username }}#}
-    {#{{ user.groups.key }}#}
-    {#{% endfor %}#}
+    <h2>Просмотр ревизий</h2>
+    {{ form_start(form) }}
+    {{ macroses.text_field(form.last_name, 140) }}
+    {{ macroses.text_field(form.first_name, 140) }}
+    {{ macroses.text_field(form.middle_name, 140) }}
+    {{ macroses.text_field(form.phone_number, 140) }}
+    {{ macroses.button_field(form.submit) }}
+    {{ form_end(form) }}
 
     <table class="table table-striped">
         <tr>
             <th>#</th>
             <th>login</th>
             <th>group</th>
+            <th>group</th>
+            <th>group</th>
         </tr>
-        {% for key, user in users %}
+        {#{% if users is defined %}#}
+        {% for key, value in storage %}
             <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.username|e }}</td>
-                <td>{{ user.groups[0] }}</td>
+                <td>{{ value.stock.stock }}</td>
+                <td>{{ value.product.product }}</td>
+                <td>{{ value.store.store }}</td>
+                <td>{{ value.countStock }}</td>
+                <td>{{ value.countStore }}</td>
+                {#<td>{{ user.groups[0] }}</td>#}
             </tr>
         {% endfor %}
+        {#{% endif %}#}
     </table>
+
     <div class="pa_menu">
         <ul>
             {% if is_granted('ROLE_EDIT_PD') %}

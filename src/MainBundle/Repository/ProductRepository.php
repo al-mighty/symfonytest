@@ -2,7 +2,7 @@
 
 namespace MainBundle\Repository;
 
-class StorageRepository extends BaseRepository
+class ProductRepository extends BaseRepository
 {
     
 }

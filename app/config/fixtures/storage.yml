@@ -1,0 +1,39 @@
+-
+    stock:
+        stock: akademka
+    store:
+        store: "trk akadem park"
+    product:
+        product: "Мышь MadeInChina"
+        productDesc: "ПРоводная"
+    countStore: 11
+    countStock: 55
+    state: active
+    stateDate: 14-12-2016 14:00:00
+    createDate:  14-12-2016 00:00:00
+-
+    stock:
+        stock: akademka
+    store:
+        store: "sity mall"
+    product:
+        product: "PlayStation 4"
+        productDesc: "version 1 200gb hdd"
+    countStore: 5
+    countStock: 33
+    state: active
+    stateDate: 14-12-2016 14:00:00
+    createDate:  14-12-2016 00:00:00
+-
+    stock:
+        stock: nevsky
+    store:
+        store: "stockman"
+    product:
+        product: "Xbox One"
+        productDesc: "Приставка 500гб hdds"
+    countStore: 11
+    countStock: 55
+    state: active
+    stateDate: 14-12-2016 14:00:00
+    createDate:  14-12-2016 00:00:00

@@ -61,7 +61,7 @@ class AuthResolver
     
     public function getProfileRoute(Request $request)
     {
-        return str_replace('index', 'profile', $this->getDefaultRoute($request));
+        return str_replace('storage', 'index', 'profile', $this->getDefaultRoute($request));
     }
 
     /**

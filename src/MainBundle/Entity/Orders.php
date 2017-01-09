@@ -21,10 +21,10 @@ class Orders extends BaseEntity
     private $orderType;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Storage")
-     * @ORM\JoinColumn(name="storage_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\PriceList")
+     * @ORM\JoinColumn(name="price_list", referencedColumnName="id")
      */
-    private $storageId;
+    private $priceList;
 
     /**
      * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Staffs")
@@ -36,11 +36,11 @@ class Orders extends BaseEntity
     /**
      * Set orderType
      *
-     * @param \MainBundle\Entity\Orders $orderType
+     * @param \MainBundle\Entity\OrderType $orderType
      *
      * @return Orders
      */
-    public function setOrderType(\MainBundle\Entity\Orders $orderType = null)
+    public function setOrderType(\MainBundle\Entity\OrderType $orderType = null)
     {
         $this->orderType = $orderType;
 
@@ -50,7 +50,7 @@ class Orders extends BaseEntity
     /**
      * Get orderType
      *
-     * @return \MainBundle\Entity\Orders
+     * @return \MainBundle\Entity\OrderType
      */
     public function getOrderType()
     {
@@ -58,27 +58,27 @@ class Orders extends BaseEntity
     }
 
     /**
-     * Set storageId
+     * Set priceList
      *
-     * @param \MainBundle\Entity\Storage $storageId
+     * @param \MainBundle\Entity\PriceList $priceList
      *
      * @return Orders
      */
-    public function setStorageId(\MainBundle\Entity\Storage $storageId = null)
+    public function setPriceList(\MainBundle\Entity\PriceList $priceList = null)
     {
-        $this->storageId = $storageId;
+        $this->priceList = $priceList;
 
         return $this;
     }
 
     /**
-     * Get storageId
+     * Get priceList
      *
-     * @return \MainBundle\Entity\Storage
+     * @return \MainBundle\Entity\PriceList
      */
-    public function getStorageId()
+    public function getPriceList()
     {
-        return $this->storageId;
+        return $this->priceList;
     }
 
     /**

@@ -2,13 +2,7 @@
 
 {% block body %}
 
-    <h2>Личный кабинет участника</h2>
-    {#<p><b>Мой баланс: </b>{{ Members.getBalance() | number_format(2, '.', ' ') }} руб.</p>#}
-    {#{{  }}#}
-    {#{% for key, user in users %}#}
-    {#{{ user.username }}#}
-    {#{{ user.groups.key }}#}
-    {#{% endfor %}#}
+    <h2>Личный кабинет кладовщика</h2>
 
     <table class="table table-striped">
         <tr>
@@ -16,13 +10,15 @@
             <th>login</th>
             <th>group</th>
         </tr>
-        {% for key, user in users %}
+        {#{% if users is defined %}#}
+        {% for key, stock in stocks %}
             <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.username|e }}</td>
-                <td>{{ user.groups[0] }}</td>
+                <td>{{ stock.id }}</td>
+                <td>{{ stock.stock|e }}</td>
+                {#<td>{{ user.groups[0] }}</td>#}
             </tr>
         {% endfor %}
+        {#{% endif %}#}
     </table>
     <div class="pa_menu">
         <ul>

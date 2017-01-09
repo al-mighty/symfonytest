@@ -4,9 +4,7 @@ namespace MainBundle\Controller;
 
 use MainBundle\C;
 use MainBundle\Entity\Members;
-use MainBundle\Form\CreateOrderType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use MainBundle\Form\OrderFiltersType;
 use MainBundle\Utils\MyLogHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,9 +22,18 @@ class MembersController extends GeneralController
     public function indexAction(Request $request)
     {
         $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
-        $Members = $this->get('model.Members')->getMembers($this->getUser());
+        $members = $this->get('model.members')->getMembers($this->getUser());
 
-        if (is_null($Members)) {
+
+        $users = $this->get('model.user')->allUsersRegister();
+        foreach ($users as $user=>$item){
+//            MyLogHelper::lg($user);
+                $member = $item->getGroups();
+                $member = array_shift($member);
+        }
+
+
+        if (is_null($members)) {
             $this->addFlash(C::FLASH_ERROR, 'Невозможно загрузить личный кабинет.');
 
             return $this->redirectToRoute('default');
@@ -34,9 +41,18 @@ class MembersController extends GeneralController
         
         return $this->render("MainBundle:Members:index.html.twig", [
             'profile_route' => $profileRoute,
-            'Members' => $Members
+            'Members' => $members,
+            'users' => $users
         ]);
     }
+
+//    public function allUsersAction(Request $request)
+//    {
+//        $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
+//        $Members = $this->get('model.Members')->getMembers($this->getUser());
+//
+//        $users = $this->get('model.user')->allUsersRegister();
+//    }
 
     /**
      * @param Request $request

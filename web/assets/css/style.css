@@ -43,14 +43,24 @@ img {
     border: 0 none;
 }
 
+#body{
+    position:relative;
+}
+#cosmos{
+    z-index: 1;
+}
 .wrapper {
-    height: auto !important;
+    z-index: 2;
     margin: 0 auto;
-    max-width: 1920px;
+    max-width: 1020px;
     min-height: 100%;
     overflow: hidden;
     padding: 0;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .content {

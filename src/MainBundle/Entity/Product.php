@@ -2,8 +2,8 @@
 
 namespace MainBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use MainBundle\Entity\Traits\StateDateTrait;
 
 /**
  * @ORM\Table(name="product")
@@ -11,34 +11,65 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Product extends BaseEntity
 {
+
+//    use StateDateTrait;
+
     /**
-     * @ORM\Column(name="name", type="string", length=45)
+     * @ORM\Column(name="product", type="string", length=45)
      */
-    private $name;
+    private $product;
 
+    /**
+     * @ORM\Column(name="product_desc", type="string", length=45)
+     */
+    private $productDesc;
 
 
     /**
-     * Set name
+     * Set product
      *
-     * @param string $name
+     * @param string $product
      *
      * @return Product
      */
-    public function setName($name)
+    public function setProduct($product)
     {
-        $this->name = $name;
+        $this->product = $product;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get product
      *
      * @return string
      */
-    public function getName()
+    public function getProduct()
     {
-        return $this->name;
+        return $this->product;
+    }
+
+    /**
+     * Set productDesc
+     *
+     * @param string $productDesc
+     *
+     * @return Product
+     */
+    public function setProductDesc($productDesc)
+    {
+        $this->productDesc = $productDesc;
+
+        return $this;
+    }
+
+    /**
+     * Get productDesc
+     *
+     * @return string
+     */
+    public function getProductDesc()
+    {
+        return $this->productDesc;
     }
 }
