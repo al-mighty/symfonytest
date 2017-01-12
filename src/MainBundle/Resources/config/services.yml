@@ -19,8 +19,8 @@ services:
         arguments: ["@service_container", "@router"]
 
 
-    model.members:
-        class: MainBundle\Model\MembersModel
+    model.admin:
+        class: MainBundle\Model\AdminModel
         arguments: ["@doctrine.orm.entity_manager"]
 
     model.staffs:
@@ -46,7 +46,7 @@ services:
             - "@doctrine.orm.entity_manager"
             - "@password_generator"
             - "@security.password_encoder"
-            - "@model.members"
+            - "@model.admin"
 
     model.service:
         class: MainBundle\Model\ServiceModel

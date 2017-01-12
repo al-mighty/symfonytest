@@ -24,13 +24,13 @@ forgot_password:
     path: /forgot_password
     defaults: { _controller: "MainBundle:Security:forgotPassword" }
 
-members_index:
-    path: /members
-    defaults: { _controller: "MainBundle:Members:index" }
+admin_index:
+    path: /admin
+    defaults: { _controller: "MainBundle:Admin:index" }
 
-members_profile:
-    path: /members/profile
-    defaults: { _controller: "MainBundle:Members:profile" }
+admin_profile:
+    path: /admin/profile
+    defaults: { _controller: "MainBundle:Admin:profile" }
 
 worker_store_index:
     path: /storekeeper

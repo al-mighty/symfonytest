@@ -42,7 +42,7 @@ class KernelRequestListener
                 $event->setResponse(new RedirectResponse($this->container->get('router')->generate('default')));
             }
 
-            if (preg_match('/^(Members|priest)/', $route) && $route !== $acceptRoute && !$accepted)
+            if (preg_match('/^(Admin|priest)/', $route) && $route !== $acceptRoute && !$accepted)
             {
                 $event->setResponse(new RedirectResponse($this->container->get('router')->generate($acceptRoute)));
             }

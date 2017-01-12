@@ -29,9 +29,9 @@ class StaffsModel
      */
     public function createStoreKeeper(User $user)
     {
-        $Members = new Staffs();
+        $staff = new Staffs();
 
-        $Members->setParams([
+        $staff->setParams([
             'user' => $user,
             'balance' => '0.00',
             'state' => 'active',
@@ -39,7 +39,7 @@ class StaffsModel
             'createDate' => new \DateTime()
         ]);
 
-        $this->em->persist($Members);
+        $this->em->persist($staff);
         $this->em->flush();
     }
 

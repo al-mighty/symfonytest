@@ -22,7 +22,7 @@ class StaffsController extends GeneralController
      */
     public function indexAction(Request $request)
     {
-        $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
+//        $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
         $user = $this->getUser();
         $staffsModel = $this->get('model.staffs');
         $staffs = $this->get('model.staffs')->getStaffs($user);
@@ -49,7 +49,7 @@ class StaffsController extends GeneralController
         }
 
         return $this->render("MainBundle:StoreKeeper:index.html.twig", [
-            'profile_route' => $profileRoute,
+//            'profile_route' => $profileRoute,
             'stocks' => $stocks,
         ]);
     }
@@ -60,7 +60,7 @@ class StaffsController extends GeneralController
      */
     public function productOnStorageAction(Request $request)
     {
-//        $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
+        $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
         $user = $this->getUser();
         $staffsModel = $this->get('model.staffs');
         $storageModel = $this->get('model.storage');

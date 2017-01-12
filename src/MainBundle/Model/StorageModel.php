@@ -30,9 +30,9 @@ class StorageModel
      */
     public function createStoreKeeper(User $user)
     {
-        $Members = new Storage();
+        $storage = new Storage();
 
-        $Members->setParams([
+        $storage->setParams([
             'user' => $user,
             'balance' => '0.00',
             'state' => 'active',
@@ -40,7 +40,7 @@ class StorageModel
             'createDate' => new \DateTime()
         ]);
 
-        $this->em->persist($Members);
+        $this->em->persist($storage);
         $this->em->flush();
     }
 

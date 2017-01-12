@@ -3,7 +3,7 @@
 namespace MainBundle\Controller;
 
 use MainBundle\C;
-use MainBundle\Entity\Members;
+use MainBundle\Entity\Admin;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use MainBundle\Utils\MyLogHelper;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Class MembersController
  * @package MainBundle\Controller
  */
-class MembersController extends GeneralController
+class AdminController extends GeneralController
 {
     /**
      * @param Request $request
@@ -22,26 +22,21 @@ class MembersController extends GeneralController
     public function indexAction(Request $request)
     {
         $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
-        $members = $this->get('model.members')->getMembers($this->getUser());
+        $admin = $this->get('model.admin')->getAdmin($this->getUser());
 
 
         $users = $this->get('model.user')->allUsersRegister();
-        foreach ($users as $user=>$item){
-//            MyLogHelper::lg($user);
-                $member = $item->getGroups();
-                $member = array_shift($member);
-        }
 
 
-        if (is_null($members)) {
+        if (is_null($admin)) {
             $this->addFlash(C::FLASH_ERROR, 'Невозможно загрузить личный кабинет.');
 
             return $this->redirectToRoute('default');
         }
         
-        return $this->render("MainBundle:Members:index.html.twig", [
+        return $this->render("MainBundle:Admin:index.html.twig", [
             'profile_route' => $profileRoute,
-            'Members' => $members,
+            'admin' => $admin,
             'users' => $users
         ]);
     }
@@ -49,7 +44,7 @@ class MembersController extends GeneralController
 //    public function allUsersAction(Request $request)
 //    {
 //        $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
-//        $Members = $this->get('model.Members')->getMembers($this->getUser());
+//        $Admin = $this->get('model.Admin')->getMembers($this->getUser());
 //
 //        $users = $this->get('model.user')->allUsersRegister();
 //    }
@@ -74,7 +69,7 @@ class MembersController extends GeneralController
                     // TODO: Use $groupId to create link
                     $groupId = $this->get('model.order')->createOrdersGroupFromForm(
                         $this->getUser(),
-                        Members::class,
+                        Admin::class,
                         $data
                     );
 
@@ -102,8 +97,8 @@ class MembersController extends GeneralController
     public function listOrdersAction(Request $request)
     {
         $modelOrder = $this->get('model.order');
-        $Members = $this->get('model.Members')->getMembers($this->getUser());
-        $orders = $modelOrder->getOrdersByParams($Members);
+        $admin = $this->get('model.admin')->getAdmin($this->getUser());
+        $orders = $modelOrder->getOrdersByParams($admin);
 
         // В фильтры выводятся только те храмы, услуги и статусы, которые фигурируют в заказах пользователя
         $orderFilters = $modelOrder->getSearchOrderFilters($orders);
@@ -122,10 +117,10 @@ class MembersController extends GeneralController
             $service = !is_null($data['service'])
                 ? $this->get('model.service')->getServiceById($data['service'])
                 : null;
-            $orders = $modelOrder->getOrdersByParams($Members, $temple, $service, $data['order_state']);
+            $orders = $modelOrder->getOrdersByParams($admin, $temple, $service, $data['order_state']);
         }        
 
-        return $this->render("MainBundle:Members:listOrders.html.twig", [
+        return $this->render("MainBundle:admin:listOrders.html.twig", [
             'orders' => $orders,
             'form' => $form->createView()
         ]);

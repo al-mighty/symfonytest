@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use MainBundle\Entity\Traits\StateDateTrait;
 
 /**
- * @ORM\Table(name="Storage")
+ * @ORM\Table(name="storage")
  * @ORM\Entity(repositoryClass="MainBundle\Repository\StorageRepository")
  */
 class Storage extends BaseEntity

@@ -3,14 +3,14 @@
 namespace MainBundle\Model;
 
 use MainBundle\Entity\User;
-use MainBundle\Entity\Members;
+use MainBundle\Entity\Admin;
 use Doctrine\ORM\EntityManager;
 
 /**
- * Class MembersModel
+ * Class AdminModel
  * @package MainBundle\Model
  */
-class MembersModel
+class AdminModel
 {
     private $em;
 
@@ -26,11 +26,11 @@ class MembersModel
     /**
      * @param User $user
      */
-    public function createMembers(User $user)
+    public function createAdmin(User $user)
     {
-        $Members = new Members();
+        $admin = new Admin();
 
-        $Members->setParams([
+        $admin->setParams([
             'user' => $user,
             'balance' => '0.00',
             'state' => 'active',
@@ -38,16 +38,16 @@ class MembersModel
             'createDate' => new \DateTime()
         ]);
 
-        $this->em->persist($Members);
+        $this->em->persist($admin);
         $this->em->flush();
     }
 
     /**
      * @param User $user
-     * @return null|Members
+     * @return null|Admin
      */
-    public function getMembers(User $user)
+    public function getAdmin(User $user)
     {
-        return $this->em->getRepository(Members::class)->findOneBy(['user' => $user]);
+        return $this->em->getRepository(Admin::class)->findOneBy(['user' => $user]);
     }
 }

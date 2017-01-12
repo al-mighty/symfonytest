@@ -15,15 +15,13 @@ class Group extends BaseEntity
     /**
      * Group codes
      */
-    const GROUP_MEMBERS = 'members';
     const GROUP_STAFF    = 'worker_store';
     const GROUP_ADMIN      = 'admin';
 
-    const GROUP_NAMES = [
-        self::GROUP_MEMBERS => 'Участник',
+    const GROUP_NAMES = array(
         self::GROUP_STAFF    => 'Работник магазина',
         self::GROUP_ADMIN      => 'Глобальный администратор'
-    ];
+    );
 
     /**
      * @ORM\Column(type="string", length=45)

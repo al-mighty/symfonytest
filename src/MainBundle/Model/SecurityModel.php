@@ -23,25 +23,25 @@ class SecurityModel
     private $em;
     private $pwdGenerator;
     private $encoder;
-    private $membersModel;
+    private $adminModel;
 
     /**
      * SecurityModel constructor.
      * @param EntityManager $em
      * @param PasswordGenerator $pwdGenerator
      * @param UserPasswordEncoder $encoder
-     * @param MembersModel $membersModel
+     * @param AdminModel $membersModel
      */
     public function __construct(
         EntityManager $em,
         PasswordGenerator $pwdGenerator,
         UserPasswordEncoder $encoder,
-        MembersModel $membersModel
+        AdminModel $adminModel
     ) {
         $this->em = $em;
         $this->pwdGenerator = $pwdGenerator;
         $this->encoder = $encoder;
-        $this->membersModel = $membersModel;
+        $this->membersModel = $adminModel;
     }
 
     /**
@@ -69,8 +69,8 @@ class SecurityModel
 
             $this->em->persist($user);
             $this->em->flush($user);
-            $this->setGroupsToUser($user, [Group::GROUP_MEMBERS]);
-            $this->membersModel->createMembers($user);
+            $this->setGroupsToUser($user, [Group::GROUP_ADMIN]);
+            $this->adminModel->createAdmin($user);
             $this->em->getConnection()->commit();
         } catch (\Exception $e) {
             $this->em->getConnection()->rollback();

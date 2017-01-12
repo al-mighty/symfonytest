@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 use MainBundle\Entity\Traits\StateDateTrait;
 
 /**
- * @ORM\Table(name="members")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\MembersRepository")
+ * @ORM\Table(name="admin")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\AdminRepository")
  */
-class Members extends BaseEntity implements PersonalDataInterface
+class Admin extends BaseEntity implements PersonalDataInterface
 {
     use StateDateTrait;
 
@@ -33,7 +33,7 @@ class Members extends BaseEntity implements PersonalDataInterface
 
     /**
      * @param PersonalData $personalData
-     * @return Members
+     * @return Admin
      */
     public function setPersonalData(PersonalData $personalData)
     {
@@ -52,7 +52,7 @@ class Members extends BaseEntity implements PersonalDataInterface
 
     /**
      * @param User $user
-     * @return Members
+     * @return Admin
      */
     public function setUser(User $user)
     {
@@ -79,7 +79,7 @@ class Members extends BaseEntity implements PersonalDataInterface
 
     /**
      * @param $balance
-     * @return Members
+     * @return Admin
      */
     public function setBalance($balance)
     {

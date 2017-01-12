@@ -1,7 +1,7 @@
 -
     user:
         username: 79009009100
-        email: member0@fixture.ru
+        email: admin0@fixture.ru
         password:  pwd
         state: active
         stateDate: 14-12-2016 14:00:00
@@ -18,7 +18,7 @@
 -
     user:
         username: 79009009101
-        email: member1@fixture.ru
+        email: admin@fixture.ru
         password:  pwd
         state: active
         stateDate: 14-12-2016 14:00:00
