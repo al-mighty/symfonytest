@@ -23,6 +23,18 @@ services:
         class: MainBundle\Model\AdminModel
         arguments: ["@doctrine.orm.entity_manager"]
 
+    model.store:
+        class: MainBundle\Model\StoreModel
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    model.stock:
+        class: MainBundle\Model\StockModel
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    model.product:
+        class: MainBundle\Model\ProductModel
+        arguments: ["@doctrine.orm.entity_manager"]
+
     model.staffs:
         class: MainBundle\Model\StaffsModel
         arguments: ["@doctrine.orm.entity_manager"]

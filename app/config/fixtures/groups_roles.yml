@@ -4,3 +4,4 @@ admin:
 
 worker_store:
     - STORAGE_LIST
+    - EDIT_PD

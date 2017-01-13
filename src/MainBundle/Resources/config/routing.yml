@@ -40,6 +40,22 @@ storage_index:
     path: /storage
     defaults: { _controller: "MainBundle:Staffs:productOnStorage" }
 
+worker_create_storage_index:
+    path: /storage/createStorage
+    defaults: { _controller: "MainBundle:Staffs:createStorage" }
+
+worker_add_product_index:
+    path: /storage/addProduct
+    defaults: { _controller: "MainBundle:Staffs:addProduct" }
+
+worker_add_stock_index:
+    path: /storage/addStock
+    defaults: { _controller: "MainBundle:Staffs:addStock" }
+
+worker_add_store_index:
+    path: /storage/addStore
+    defaults: { _controller: "MainBundle:Staffs:addStore" }
+
 admin_user_list:
     path: /admin/user/list
     defaults: { _controller: "MainBundle:Admin:listUsers" }

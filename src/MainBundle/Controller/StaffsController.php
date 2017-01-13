@@ -3,11 +3,10 @@
 
 namespace MainBundle\Controller;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\Request;
-use MainBundle\Entity\Staffs;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use MainBundle\C;
+use MainBundle\Form\CreateStorage;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -90,6 +89,73 @@ class StaffsController extends GeneralController
         return $this->render("MainBundle:StoreKeeper:storage.html.twig", [
 //            'profile_route' => $profileRoute,
             'storage' => $allStorage,
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return RedirectResponse|Response
+     */
+    public function createStorageAction(Request $request)
+    {
+//        $services = $this->get('model.storage')->getActiveServicesArray();
+
+        $user = $this->getUser();
+        $staffsModel = $this->get('model.staffs');
+        $staffs = $this->get('model.staffs')->getStaffs($user);
+
+        //Список Складов
+        $listStock = $staffs->getStock()->getId();
+
+        $storeModel = $this->get('model.store');
+
+        $allStore = $storeModel->getAllStore();
+
+
+//        $stock = $this->get('model.stock')->getActiveServicesArray();
+//        $store = $this->get('model.store')->getActiveTemplesArray();
+//
+
+
+
+//        $form = $this->createForm(CreateStorage::class,
+//                                    null,
+//                                    [
+//                                        'store' => $allStore,
+//                                        'stock' => $listStock
+//                                    ]
+//        );
+
+
+
+//        $form->handleRequest($request);
+//
+//        if ($form->isSubmitted()) {
+//            if ($form->isValid()) {
+//                $data = $form->getData();
+//
+//                try {
+//                    // TODO: Use $groupId to create link
+//                    $groupId = $this->get('model.order')->createOrdersGroupFromForm(
+//                        $this->getUser(),
+//                        Congregant::class,
+//                        $data
+//                    );
+//
+//                    $this->addFlash(C::FLASH_SUCCESS, 'Ваш заказ создан и находится в разделе "Мои заказы".');
+//                } catch (\Exception $e) {
+//                    $this->addFlash(C::FLASH_ERROR, 'В процессе оформления заказа возникла ошибка.');
+//                    $this->addFlash(C::FLASH_ERROR, $e->getMessage()); // TODO: delete!
+//                }
+//            } else {
+//                $this->addFlash(C::FLASH_ERROR, 'Проверьте правильность ввода данных!');
+//            }
+//
+//            return $this->redirectToRoute('worker_create_storage_index');
+//        }
+
+        return $this->render("MainBundle:StoreKeeper:createStorage.html.twig", [
+//            'form' => $form->createView()
         ]);
     }
 }

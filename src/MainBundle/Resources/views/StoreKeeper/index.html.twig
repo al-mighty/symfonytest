@@ -4,21 +4,18 @@
 
     <h2>Личный кабинет кладовщика</h2>
 
+    <h3>Распределен на склады</h3>
     <table class="table table-striped">
         <tr>
-            <th>#</th>
-            <th>login</th>
-            <th>group</th>
+            <th>id</th>
+            <th>Имя Склада</th>
         </tr>
-        {#{% if users is defined %}#}
         {% for key, stock in stocks %}
             <tr>
                 <td>{{ stock.id }}</td>
                 <td>{{ stock.stock|e }}</td>
-                {#<td>{{ user.groups[0] }}</td>#}
             </tr>
         {% endfor %}
-        {#{% endif %}#}
     </table>
     <div class="pa_menu">
         <ul>
@@ -28,17 +25,22 @@
                 </li>
             {% endif %}
 
-            {% if is_granted('ROLE_CREATE_ORDER') %}
+            {#{% if is_granted('ROLE_CREATE_ORDER') %}#}
                 <li>
-                    <a href="{{ path('Members_create_order') }}">Создать заказ</a>
+                    <a href="{{ path("storage_index") }}">Список распределённых товаров</a>
                 </li>
-            {% endif %}
+            {#{% endif %}#}
+            <li>
+                <a href="{{ path('worker_create_storage_index') }}">Добавить товраы к маказину\ складу</a>
+            </li>
 
-            {% if is_granted('ROLE_Members_ORDERS_LIST') %}
-                <li>
-                    <a href="{{ path('Members_orders_list') }}">Мои заказы</a>
-                </li>
-            {% endif %}
+            {#{% if is_granted('ROLE_Members_ORDERS_LIST') %}#}
+
+                {#<li>#}
+                    {#<a href="#">Добавить магазину маказину товары</a>#}
+                    {#<a href="{{ path('Members_orders_list') }}">Отгрузить маказину товары</a>#}
+                {#</li>#}
+            {#{% endif %}#}
         </ul>
     </div>
 

@@ -1,0 +1,52 @@
+{% extends 'MainBundle:Layout:layout.html.twig' %}
+
+{% block body %}
+
+    <h2>Добавление продуктов на хранение</h2>
+    {#{{ form_start(form) }}#}
+    {#{{ macroses.text_field(form.product, 140) }}#}
+    {#{{ macroses.text_field(form.stock, 140) }}#}
+    {#{{ macroses.text_field(form.store, 140) }}#}
+    {#{{ macroses.text_field(form.stockCount, 140) }}#}
+    {#{{ macroses.text_field(form.storeCount, 140) }}#}
+    {#{{ macroses.button_field(form.submit) }}#}
+    {#{{ form_end(form) }}#}
+wtf
+    {#<table class="table table-striped">#}
+        {#<tr>#}
+            {#<th>Имя Склада</th>#}
+            {#<th>Продукт</th>#}
+            {#<th>Магазин</th>#}
+            {#<th>кол-во на складе</th>#}
+            {#<th>кол-во в магазине</th>#}
+        {#</tr>#}
+        {#{% for key, value in storage %}#}
+            {#<tr>#}
+                {#<td>{{ value.stock.stock }}</td>#}
+                {#<td>{{ value.product.product }}</td>#}
+                {#<td>{{ value.store.store }}</td>#}
+                {#<td>{{ value.countStock }}</td>#}
+                {#<td>{{ value.countStore }}</td>#}
+                {#<td>{{ value }}</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#{% endif %}#}
+    {#</table>#}
+
+    {#<div class="pa_menu">#}
+        {#<ul>#}
+            {#{% if is_granted('ROLE_CREATE_ORDER') %}#}
+                {#<li>#}
+                    {#<a href="{{ path('Members_create_order') }}">Создать заказ</a>#}
+                {#</li>#}
+            {#{% endif %}#}
+
+            {#{% if is_granted('ROLE_Members_ORDERS_LIST') %}#}
+                {#<li>#}
+                    {#<a href="{{ path('Members_orders_list') }}">Мои заказы</a>#}
+                {#</li>#}
+            {#{% endif %}#}
+        {#</ul>#}
+    {#</div>#}
+
+{% endblock %}
