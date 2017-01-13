@@ -25,3 +25,4 @@ parameters:
     fixture.staffs: '%kernel.root_dir%/config/fixtures/staffs.yml'
     fixture.products: '%kernel.root_dir%/config/fixtures/products.yml'
     fixture.storage: '%kernel.root_dir%/config/fixtures/storage.yml'
+    fixture.groups_roles: '%kernel.root_dir%/config/fixtures/groups_roles.yml'S

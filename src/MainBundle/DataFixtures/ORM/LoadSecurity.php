@@ -1,7 +1,8 @@
 <?php
-namespace MainBundle\DataFixtures\ORM;
+namespace BlagostBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use MainBundle\DataFixtures\ORM\BaseLoadFixture;
 
 class LoadSecurity extends BaseLoadFixture
 {
@@ -11,13 +12,13 @@ class LoadSecurity extends BaseLoadFixture
         $maintenanceModel->loadGroups();
         $maintenanceModel->loadRoles();
 
-//        $data = $this->loadFromYaml('groups_roles');
-//
-//        try {
-//            $maintenanceModel->loadGroupRoles($data);
-//        } catch (\Exception $e) {
-//            echo $e->getMessage() . PHP_EOL;
-//        }
+        $data = $this->loadFromYaml('groups_roles');
+
+        try {
+            $maintenanceModel->loadGroupRoles($data);
+        } catch (\Exception $e) {
+            echo $e->getMessage() . PHP_EOL;
+        }
     }
 
     public function getOrder()

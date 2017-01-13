@@ -1,0 +1,6 @@
+admin:
+    - ADMIN_USER_LIST
+    - EDIT_PD
+
+worker_store:
+    - STORAGE_LIST

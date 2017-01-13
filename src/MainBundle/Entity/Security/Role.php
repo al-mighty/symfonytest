@@ -14,8 +14,9 @@ class Role extends BaseEntity implements RoleInterface
 {
 //    const ROLE_CREATE_ORDER           = 'CREATE_ORDER';
 //    const ROLE_READ_ORDER             = 'READ_ORDER';
-    const ROLE_ADMIN_ORDERS_LIST    = 'ADMIN_ORDERS_LIST';
+    const ROLE_ADMIN_USER_LIST    = 'ADMIN_USER_LIST';
     const ROLE_ADMIN_PA             = 'ADMIN_PERSONAL_AREA';
+    const ROLE_STORAGE_LIST             = 'STORAGE_LIST';
 //    const ROLE_CASHIER_PA             = 'CASHIER_PERSONAL_AREA';
 //    const ROLE_CASHIER_ORDER_SEARCH   = 'CASHIER_ORDER_SEARCH';
     const ROLE_EDIT_PD                = 'EDIT_PD';
@@ -23,8 +24,9 @@ class Role extends BaseEntity implements RoleInterface
     const ROLE_NAMES = [
 //        self::ROLE_CREATE_ORDER           => 'Создание заказа',
 //        self::ROLE_READ_ORDER             => 'Просмотр заказа',
-        self::ROLE_ADMIN_ORDERS_LIST => 'Просмотр прихожанином списка его заказов',
-        self::ROLE_ADMIN_PA          => 'Работа с личным кабинетом участника',
+        self::ROLE_ADMIN_USER_LIST => 'Просмотр администратором всех пользователей',
+        self::ROLE_ADMIN_PA          => 'Работа с личным кабинетом администратора',
+        self::ROLE_STORAGE_LIST          => 'просмотр всех хранимых товаров',
 //        self::ROLE_CASHIER_PA             => 'Работа с личным кабинетом кассира',
 //        self::ROLE_CASHIER_ORDER_SEARCH   => 'Поиск заказов кассиром',
         self::ROLE_EDIT_PD                => 'Редактирование персональных данных'

@@ -39,3 +39,7 @@ worker_store_index:
 storage_index:
     path: /storage
     defaults: { _controller: "MainBundle:Staffs:productOnStorage" }
+
+admin_user_list:
+    path: /admin/user/list
+    defaults: { _controller: "MainBundle:Admin:listUsers" }
