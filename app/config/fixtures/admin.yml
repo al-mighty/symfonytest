@@ -35,7 +35,7 @@
 -
     user:
         username: 79009009102
-        email: member2@fixture.ru
+        email: admin2@fixture.ru
         password:  pwd
         state: active
         stateDate: 14-12-2016 14:00:00

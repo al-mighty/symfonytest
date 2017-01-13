@@ -30,7 +30,7 @@ class SecurityModel
      * @param EntityManager $em
      * @param PasswordGenerator $pwdGenerator
      * @param UserPasswordEncoder $encoder
-     * @param AdminModel $membersModel
+     * @param AdminModel $adminModel
      */
     public function __construct(
         EntityManager $em,
@@ -41,7 +41,7 @@ class SecurityModel
         $this->em = $em;
         $this->pwdGenerator = $pwdGenerator;
         $this->encoder = $encoder;
-        $this->membersModel = $adminModel;
+        $this->adminModel = $adminModel;
     }
 
     /**

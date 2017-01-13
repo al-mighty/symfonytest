@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class MembersController
+ * Class AdminController
  * @package MainBundle\Controller
  */
 class AdminController extends GeneralController

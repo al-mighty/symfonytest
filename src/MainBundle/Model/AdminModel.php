@@ -15,7 +15,7 @@ class AdminModel
     private $em;
 
     /**
-     * MembersModel constructor.
+     * AdminModel constructor.
      * @param EntityManager $em
      */
     public function  __construct(EntityManager $em)

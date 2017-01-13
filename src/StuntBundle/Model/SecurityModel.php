@@ -51,7 +51,7 @@ class SecurityModel
 
             $this->em->persist($user);
             $this->em->flush($user);
-            $this->setGroupsToUser($user, [Group::GROUP_CONGREGANT]);
+            $this->setGroupsToUser($user, [Group::GROUP_STAFF]);
             $this->em->commit();
         } catch (\Exception $e) {
             $this->em->rollback();
