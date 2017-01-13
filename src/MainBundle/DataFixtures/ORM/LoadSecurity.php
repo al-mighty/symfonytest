@@ -1,8 +1,7 @@
 <?php
-namespace BlagostBundle\DataFixtures\ORM;
+namespace MainBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use MainBundle\DataFixtures\ORM\BaseLoadFixture;
 
 class LoadSecurity extends BaseLoadFixture
 {

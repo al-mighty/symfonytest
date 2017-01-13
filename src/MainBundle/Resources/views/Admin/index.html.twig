@@ -24,11 +24,11 @@
                 </li>
             {% endif %}
 
-            {#{% if is_granted('ROLE_ADMIN_USER_LIST') %}#}
+            {% if is_granted('ROLE_ADMIN_USER_LIST') %}
                 <li>
-                    <a href="{{ path('admin_user_list') }}">Мои заказы</a>
+                    <a href="{{ path('admin_user_list') }}">Список пользователей</a>
                 </li>
-            {#{% endif %}#}
+            {% endif %}
         </ul>
     </div>
 

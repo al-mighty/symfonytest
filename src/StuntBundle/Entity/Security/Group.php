@@ -1,33 +1,27 @@
 <?php
 
-namespace StuntBundle\Entity\Security;
+namespace MainBundle\Entity\Security;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use StuntBundle\Entity\BaseEntity;
+use MainBundle\Entity\BaseEntity;
 
 /**
  * @ORM\Table(name="groups")
- * @ORM\Entity(repositoryClass="StuntBundle\Repository\GroupRepository")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\GroupRepository")
  */
 class Group extends BaseEntity
 {
     /**
      * Group codes
      */
-    const GROUP_CONGREGANT = 'GROUP_CONGREGANT';
-    const GROUP_CASHIER    = 'GROUP_CASHIER';
-    const GROUP_PRIEST     = 'GROUP_PRIEST';
-    const GROUP_ACCOUNTANT = 'GROUP_ACCOUNTANT';
-    const GROUP_ADMIN      = 'GROUP_ADMIN';
+    const GROUP_STAFF    = 'worker_store';
+    const GROUP_ADMIN      = 'admin';
 
-    const GROUP_NAMES = [
-        self::GROUP_CONGREGANT => 'Прихожанин',
-        self::GROUP_CASHIER    => 'Кассир',
-        self::GROUP_PRIEST     => 'Настоятель',
-        self::GROUP_ACCOUNTANT => 'Бухгалтер РПЦ',
+    const GROUP_NAMES = array(
+        self::GROUP_STAFF    => 'Работник магазина',
         self::GROUP_ADMIN      => 'Глобальный администратор'
-    ];
+    );
 
     /**
      * @ORM\Column(type="string", length=45)
@@ -105,5 +99,29 @@ class Group extends BaseEntity
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    /**
+     * Add role
+     *
+     * @param \MainBundle\Entity\Security\Role $role
+     *
+     * @return Group
+     */
+    public function addRole(\MainBundle\Entity\Security\Role $role)
+    {
+        $this->roles[] = $role;
+
+        return $this;
+    }
+
+    /**
+     * Remove role
+     *
+     * @param \MainBundle\Entity\Security\Role $role
+     */
+    public function removeRole(\MainBundle\Entity\Security\Role $role)
+    {
+        $this->roles->removeElement($role);
     }
 }
