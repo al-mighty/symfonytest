@@ -27,10 +27,10 @@ class Orders extends BaseEntity
     private $priceList;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\Staffs")
-     * @ORM\JoinColumn(name="staff_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="MainBundle\Entity\StoreKeeper")
+     * @ORM\JoinColumn(name="store_keeper_id", referencedColumnName="id")
      */
-    private $staffId;
+    private $storeKeeper;
 
 
     /**
@@ -40,7 +40,7 @@ class Orders extends BaseEntity
      *
      * @return Orders
      */
-    public function setOrderType(\MainBundle\Entity\OrderType $orderType = null)
+    public function setOrderType(OrderType $orderType = null)
     {
         $this->orderType = $orderType;
 
@@ -64,7 +64,7 @@ class Orders extends BaseEntity
      *
      * @return Orders
      */
-    public function setPriceList(\MainBundle\Entity\PriceList $priceList = null)
+    public function setPriceList(PriceList $priceList = null)
     {
         $this->priceList = $priceList;
 
@@ -82,26 +82,23 @@ class Orders extends BaseEntity
     }
 
     /**
-     * Set staffId
-     *
-     * @param \MainBundle\Entity\Staffs $staffId
-     *
-     * @return Orders
+     * @param StoreKeeper|null $storeKeeper
+     * @return $this
      */
-    public function setStaffId(\MainBundle\Entity\Staffs $staffId = null)
+    public function setStoreKeeper(StoreKeeper $storeKeeper = null)
     {
-        $this->staffId = $staffId;
+        $this->storeKeeper = $storeKeeper;
 
         return $this;
     }
 
     /**
-     * Get staffId
+     * Get StoreKeeper
      *
-     * @return \MainBundle\Entity\Staffs
+     * @return \MainBundle\Entity\StoreKeeper
      */
-    public function getStaffId()
+    public function getStoreKeeper()
     {
-        return $this->staffId;
+        return $this->storeKeeper;
     }
 }

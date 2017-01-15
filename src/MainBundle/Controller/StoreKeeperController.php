@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class StaffsController
+ * Class StoreKeeperController
  * @package MainBundle\Controller
  */
-class StaffsController extends GeneralController
+class StoreKeeperController extends GeneralController
 {
     /**
      * @param Request $request
@@ -23,15 +23,15 @@ class StaffsController extends GeneralController
     {
 //        $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
         $user = $this->getUser();
-        $staffsModel = $this->get('model.staffs');
-        $staffs = $this->get('model.staffs')->getStaffs($user);
+        $storeKeeperModel = $this->get('model.store_keeper');
+        $storeKeeper =$storeKeeperModel->getStoreKeeper($user);
         $userId=$user->getId();
 
-        $stocks = $staffsModel->findCurrentStock($staffs);
+        $stocks = $storeKeeperModel->findCurrentStock($storeKeeper);
 
 
         $nameStock='';
-//        $staffs->getStock()->getStock()
+//        $storeKeeper->getStock()->getStock()
 
 //        $users = $this->get('model.user')->allUsersRegister();
 //        foreach ($users as $user=>$item){
@@ -41,7 +41,7 @@ class StaffsController extends GeneralController
 //        }
 
 
-        if (is_null($staffs)) {
+        if (is_null($storeKeeper)) {
             $this->addFlash(C::FLASH_ERROR, 'Невозможно загрузить личный кабинет.');
 
             return $this->redirectToRoute('/');
@@ -61,10 +61,10 @@ class StaffsController extends GeneralController
     {
         $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
         $user = $this->getUser();
-        $staffsModel = $this->get('model.staffs');
+        $storeKeeperModel = $this->get('model.store_keeper');
         $storageModel = $this->get('model.storage');
 
-//        $staffs = $staffsModel->getStaffs($user);
+//        $staffs = $storeKeeperModel->getStaffs($user);
 
         $allStorage = $storageModel->getAllStorage();
 
@@ -101,11 +101,11 @@ class StaffsController extends GeneralController
 //        $services = $this->get('model.storage')->getActiveServicesArray();
 
         $user = $this->getUser();
-        $staffsModel = $this->get('model.staffs');
-        $staffs = $this->get('model.staffs')->getStaffs($user);
+        $storeKeeperModel = $this->get('model.store_keeper');
+        $storeKeepers =$storeKeeperModel->getStoreKeeper($user);
 
         //Список Складов
-        $listStock = $staffs->getStock()->getId();
+        $listStock = $storeKeepers->getStock()->getId();
 
         $storeModel = $this->get('model.store');
 

@@ -15,11 +15,11 @@ class Group extends BaseEntity
     /**
      * Group codes
      */
-    const GROUP_STAFF    = 'worker_store';
+    const GROUP_STORE_KEEPER    = 'store_keeper';
     const GROUP_ADMIN      = 'admin';
 
     const GROUP_NAMES = array(
-        self::GROUP_STAFF    => 'Работник магазина',
+        self::GROUP_STORE_KEEPER    => 'Работник магазина',
         self::GROUP_ADMIN      => 'Глобальный администратор'
     );
 

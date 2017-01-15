@@ -22,7 +22,7 @@ parameters:
     redis_dsn_session: redis://localhost/1
 
     fixture.admin: '%kernel.root_dir%/config/fixtures/admin.yml'
-    fixture.staffs: '%kernel.root_dir%/config/fixtures/staffs.yml'
+    fixture.store_keeper: '%kernel.root_dir%/config/fixtures/store_keeper.yml'
     fixture.products: '%kernel.root_dir%/config/fixtures/products.yml'
     fixture.storage: '%kernel.root_dir%/config/fixtures/storage.yml'
     fixture.groups_roles: '%kernel.root_dir%/config/fixtures/groups_roles.yml'

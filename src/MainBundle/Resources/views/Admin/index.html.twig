@@ -18,6 +18,14 @@
                 </li>
             {% endif %}
 
+            <li>
+                {#<a href="{{ path('add_product') }}">Добавить товар</a>#}
+            </li>
+
+            <li>
+                {#<a href="{{ path('edit_storage') }}">Распределить товар на складе и в магазинеы</a>#}
+            </li>
+
             {% if is_granted('ROLE_CREATE_ORDER') %}
                 <li>
                     <a href="{{ path('admin_create_order') }}">Создать заказ</a>

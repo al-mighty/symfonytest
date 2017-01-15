@@ -4,19 +4,20 @@
 namespace MainBundle\Model;
 
 use Doctrine\ORM\EntityManager;
-use MainBundle\Entity\Staffs;
+use MainBundle\Entity\Store;
+use MainBundle\Entity\StoreKeeper;
 use MainBundle\Entity\User;
 
 /**
- * Class StaffsModel
+ * Class StoreKeeperModel
  * @package MainBundle\Model
  */
-class StaffsModel
+class StoreKeeperModel
 {
     private $em;
 
     /**
-     * StaffsModel constructor.
+     * StoreKeeperModel constructor.
      * @param EntityManager $em
      */
     public function  __construct(EntityManager $em)
@@ -29,9 +30,9 @@ class StaffsModel
      */
     public function createStoreKeeper(User $user)
     {
-        $staff = new Staffs();
+        $storeKeeper = new StoreKeeper();
 
-        $staff->setParams([
+        $storeKeeper->setParams([
             'user' => $user,
             'balance' => '0.00',
             'state' => 'active',
@@ -39,16 +40,16 @@ class StaffsModel
             'createDate' => new \DateTime()
         ]);
 
-        $this->em->persist($staff);
+        $this->em->persist($storeKeeper);
         $this->em->flush();
     }
 
     /**
      * @param $userId
-     * @return array|Staffs[]
+     * @return array|StoreKeeper[]
      */
     public function findCurrentStock($userId){
-        $allStock = $this->em->getRepository(Staffs::class)->findBy(['user'=>$userId->getUser()]);
+        $allStock = $this->em->getRepository(StoreKeeper::class)->findBy(['user'=>$userId->getUser()]);
         $arrayStocks =[];
         $arrayStocks2 =[];
         foreach ($allStock as $item){
@@ -61,10 +62,10 @@ class StaffsModel
 
     /**
      * @param User $user
-     * @return null|Staffs
+     * @return StoreKeeper|null|object
      */
-    public function getStaffs(User $user)
+    public function getStoreKeeper(User $user)
     {
-        return $this->em->getRepository(Staffs::class)->findOneBy(['user' => $user]);
+        return $this->em->getRepository(StoreKeeper::class)->findOneBy(['user' => $user]);
     }
 }

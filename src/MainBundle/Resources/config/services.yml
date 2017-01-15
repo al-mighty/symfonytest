@@ -35,8 +35,8 @@ services:
         class: MainBundle\Model\ProductModel
         arguments: ["@doctrine.orm.entity_manager"]
 
-    model.staffs:
-        class: MainBundle\Model\StaffsModel
+    model.store_keeper:
+        class: MainBundle\Model\StoreKeeperModel
         arguments: ["@doctrine.orm.entity_manager"]
 
     model.storage:

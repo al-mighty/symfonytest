@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 use MainBundle\Entity\Traits\StateDateTrait;
 
 /**
- * @ORM\Table(name="staffs")
- * @ORM\Entity(repositoryClass="MainBundle\Repository\StaffRepository")
+ * @ORM\Table(name="store_keeper")
+ * @ORM\Entity(repositoryClass="MainBundle\Repository\StoreKeeperRepository")
  */
-class Staffs extends BaseEntity implements PersonalDataInterface
+class StoreKeeper extends BaseEntity implements PersonalDataInterface
 {
     use StateDateTrait;
 
@@ -34,7 +34,7 @@ class Staffs extends BaseEntity implements PersonalDataInterface
 
     /**
      * @param PersonalData $personalData
-     * @return staffs
+     * @return StoreKeeper
      */
     public function setPersonalData(PersonalData $personalData)
     {
@@ -53,7 +53,7 @@ class Staffs extends BaseEntity implements PersonalDataInterface
 
     /**
      * @param User $user
-     * @return Staffs
+     * @return StoreKeeper
      */
     public function setUser(User $user)
     {
@@ -73,7 +73,7 @@ class Staffs extends BaseEntity implements PersonalDataInterface
 
     /**
      * @param Stock $stock
-     * @return Staffs
+     * @return StoreKeeper
      */
     public function setStock(Stock $stock)
     {

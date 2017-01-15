@@ -4,7 +4,7 @@
 namespace MainBundle\Model;
 
 use Doctrine\ORM\EntityManager;
-use MainBundle\Entity\Staffs;
+use MainBundle\Entity\StoreKeeper;
 use MainBundle\Entity\Storage;
 use MainBundle\Entity\User;
 
@@ -12,7 +12,7 @@ use MainBundle\Entity\User;
  * Class StorageModel
  * @package MainBundle\Model
  */
-class StorageModel
+class ProductModel
 {
     private $em;
 

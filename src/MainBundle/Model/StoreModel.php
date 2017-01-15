@@ -4,7 +4,7 @@
 namespace MainBundle\Model;
 
 use Doctrine\ORM\EntityManager;
-use MainBundle\Entity\Staffs;
+use MainBundle\Entity\StoreKeeper;
 use MainBundle\Entity\Storage;
 use MainBundle\Entity\Store;
 use MainBundle\Entity\User;

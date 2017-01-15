@@ -32,29 +32,29 @@ admin_profile:
     path: /admin/profile
     defaults: { _controller: "MainBundle:Admin:profile" }
 
-worker_store_index:
+store_keeper_index:
     path: /storekeeper
-    defaults: { _controller: "MainBundle:Staffs:index" }
+    defaults: { _controller: "MainBundle:StoreKeeper:index" }
 
 storage_index:
     path: /storage
-    defaults: { _controller: "MainBundle:Staffs:productOnStorage" }
+    defaults: { _controller: "MainBundle:StoreKeeper:productOnStorage" }
 
 worker_create_storage_index:
     path: /storage/createStorage
-    defaults: { _controller: "MainBundle:Staffs:createStorage" }
+    defaults: { _controller: "MainBundle:StoreKeeper:createStorage" }
 
 worker_add_product_index:
     path: /storage/addProduct
-    defaults: { _controller: "MainBundle:Staffs:addProduct" }
+    defaults: { _controller: "MainBundle:StoreKeeper:addProduct" }
 
 worker_add_stock_index:
     path: /storage/addStock
-    defaults: { _controller: "MainBundle:Staffs:addStock" }
+    defaults: { _controller: "MainBundle:StoreKeeper:addStock" }
 
 worker_add_store_index:
     path: /storage/addStore
-    defaults: { _controller: "MainBundle:Staffs:addStore" }
+    defaults: { _controller: "MainBundle:StoreKeeper:addStore" }
 
 admin_user_list:
     path: /admin/user/list
