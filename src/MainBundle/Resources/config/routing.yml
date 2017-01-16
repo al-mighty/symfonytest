@@ -44,8 +44,8 @@ worker_create_storage_index:
     path: /storage/createStorage
     defaults: { _controller: "MainBundle:StoreKeeper:createStorage" }
 
-worker_add_product_index:
-    path: /storage/addProduct
+store_keeper_add_product_index:
+    path: /storekeeper/addProduct
     defaults: { _controller: "MainBundle:StoreKeeper:addProduct" }
 
 worker_add_stock_index:

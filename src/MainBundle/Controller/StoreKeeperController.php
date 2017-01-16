@@ -4,6 +4,7 @@
 namespace MainBundle\Controller;
 
 use MainBundle\C;
+use MainBundle\Form\AddProduct;
 use MainBundle\Form\CreateStorage;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,13 +25,13 @@ class StoreKeeperController extends GeneralController
 //        $profileRoute = $this->get('auth_resolver')->getProfileRoute($request);
         $user = $this->getUser();
         $storeKeeperModel = $this->get('model.store_keeper');
-        $storeKeeper =$storeKeeperModel->getStoreKeeper($user);
-        $userId=$user->getId();
+        $storeKeeper = $storeKeeperModel->getStoreKeeper($user);
+        $userId = $user->getId();
 
         $stocks = $storeKeeperModel->findCurrentStock($storeKeeper);
 
 
-        $nameStock='';
+        $nameStock = '';
 //        $storeKeeper->getStock()->getStock()
 
 //        $users = $this->get('model.user')->allUsersRegister();
@@ -69,7 +70,7 @@ class StoreKeeperController extends GeneralController
         $allStorage = $storageModel->getAllStorage();
 
 
-        $nameStock='';
+        $nameStock = '';
 //        $staffs->getStock()->getStock()
 
 //        $users = $this->get('model.user')->allUsersRegister();
@@ -102,7 +103,7 @@ class StoreKeeperController extends GeneralController
 
         $user = $this->getUser();
         $storeKeeperModel = $this->get('model.store_keeper');
-        $storeKeepers =$storeKeeperModel->getStoreKeeper($user);
+        $storeKeepers = $storeKeeperModel->getStoreKeeper($user);
 
         //Список Складов
         $listStock = $storeKeepers->getStock()->getId();
@@ -117,7 +118,6 @@ class StoreKeeperController extends GeneralController
 //
 
 
-
 //        $form = $this->createForm(CreateStorage::class,
 //                                    null,
 //                                    [
@@ -125,7 +125,6 @@ class StoreKeeperController extends GeneralController
 //                                        'stock' => $listStock
 //                                    ]
 //        );
-
 
 
 //        $form->handleRequest($request);
@@ -156,6 +155,45 @@ class StoreKeeperController extends GeneralController
 
         return $this->render("MainBundle:StoreKeeper:createStorage.html.twig", [
 //            'form' => $form->createView()
+        ]);
+    }
+
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function addProductAction(Request $request)
+    {
+        $form = $this->createForm(AddProduct::class);
+        $form->handleRequest($request);
+//
+        if ($form->isSubmitted()) {
+            if ($form->isValid()) {
+                $formData = $form->getData();
+//
+                try {
+//                    // TODO: Use $groupId to create link
+//                    $groupId = $this->get('model.order')->createOrdersGroupFromForm(
+//                        $this->getUser(),
+//                        Congregant::class,
+//                        $data
+//                    );
+//
+//                    $this->addFlash(C::FLASH_SUCCESS, 'Ваш заказ создан и находится в разделе "Мои заказы".');
+                } catch (\Exception $e) {
+                    $this->addFlash(C::FLASH_ERROR, 'В процессе оформления заказа возникла ошибка.');
+                    $this->addFlash(C::FLASH_ERROR, $e->getMessage()); // TODO: delete!
+                }
+            } else {
+                $this->addFlash(C::FLASH_ERROR, 'Проверьте правильность ввода данных!');
+            }
+//
+//            return $this->redirectToRoute('worker_create_storage_index');
+        }
+
+        return $this->render("MainBundle:StoreKeeper:addProduct.html.twig", [
+            'form' => $form->createView()
         ]);
     }
 }

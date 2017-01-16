@@ -25,6 +25,9 @@
                 </li>
             {% endif %}
 
+            <li>
+                <a href="{{ path("store_keeper_add_product_index") }}">Добавить продукт</a>
+            </li>
             {#{% if is_granted('ROLE_CREATE_ORDER') %}#}
                 <li>
                     <a href="{{ path("storage_index") }}">Список распределённых товаров</a>
