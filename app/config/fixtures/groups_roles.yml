@@ -2,6 +2,6 @@ admin:
     - ADMIN_USER_LIST
     - EDIT_PD
 
-worker_store:
+store_keeper:
     - STORAGE_LIST
     - EDIT_PD
