@@ -17,6 +17,7 @@ class RegistrationType extends AbstractType
         $builder
             ->add('login', TextType::class, [
                 'label' => 'Номер телефона:',
+                'attr'=> array('maxlength' => 10),
                 'constraints' => new NotBlank()
             ])
             ->add('email', TextType::class, [

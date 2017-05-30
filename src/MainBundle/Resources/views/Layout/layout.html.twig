@@ -28,32 +28,47 @@
 </head>
 
 <body>
-<div id="body">
     <canvas id="cosmos"></canvas>
     {% block wrapper %}
-        <div class="wrapper">
-            <header>
-                <div class="inner">
-                    {{ render(controller('MainBundle:Default:header')) }}
-                    {{ render(controller('MainBundle:Default:navbar')) }}
-                </div>
-            </header>
+        <div class="container">
+            <div class="row">
+                <header>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-8">
+                            <h1>Магазин</h1>
+                            {{ render(controller('MainBundle:Default:navbar')) }}
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            {{ render(controller('MainBundle:Default:header')) }}
+                        </div>
+                    </div>
+                </header>
+            </div>
 
-            <section class="content">
-                <div class="inner">
-                    {% include 'MainBundle:Layout:alert.html.twig' %}
-                    {% block body %}{% endblock %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <section class="content">
+                        <div class="">
+                            {% include 'MainBundle:Layout:alert.html.twig' %}
+                            {% block body %}{% endblock %}
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
 
-            <footer>
-                <div class="inner">
-                    <p class="center">Copyright &copy; 2016 Система «Контроля склада»</p>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <footer>
+                        <div class="inner">
+                            <p class="center">Copyright &copy; 2016 Система «Контроля склада»</p>
+                        </div>
+                    </footer>
                 </div>
-            </footer>
+            </div>
+
         </div>
     {% endblock %}
-</div>
 
 
 {% block script %}
@@ -61,6 +76,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
     <script src="{{ asset('assets/js/vendor/particles.js') }}"></script>
     <script src="{{ asset('assets/js/vendor/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/common.js') }}"></script>
     <script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>

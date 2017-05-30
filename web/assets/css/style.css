@@ -43,11 +43,9 @@ img {
     border: 0 none;
 }
 
-#body{
-    position:relative;
-}
 #cosmos{
-    z-index: 1;
+    z-index: -1;
+    position: absolute;
 }
 .wrapper {
     z-index: 2;
@@ -63,10 +61,10 @@ img {
     right: 0;
 }
 
-.content {
-    box-shadow: 7px 0 11px -5px #aaa, -7px 0 11px -5px #aaa;
-    padding: 10px 0;
-}
+/*.content {*/
+    /*box-shadow: 7px 0 11px -5px #aaa, -7px 0 11px -5px #aaa;*/
+    /*padding: 10px 0;*/
+/*}*/
 
 .inner {
     margin-left: auto;
@@ -138,12 +136,12 @@ footer {
 }
 
 /* navigation */
-.navbar ul li {
+nav ul li {
     display: inline-block;
     padding: 10px;
 }
 
-.navbar ul li a {
+nav ul li a {
     font-size: 1.2em;
     text-decoration: none;
 }
